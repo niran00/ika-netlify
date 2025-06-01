@@ -2,7 +2,7 @@ const products = [
    
 
       {
-        image :  "/product2.webp",
+        image :  "https://niranrevampika.netlify.app/product2.webp",
         price : "$6000",
         product_type: "Laboratory Technology", 
         name: "ElectraSyn 2.0 pro Package", 
@@ -34,7 +34,7 @@ const products = [
       }, 
 
        {
-        image :  "/product3.webp",
+        image :  "https://niranrevampika.netlify.app/product3.webp",
         price : "$12000",
         product_type: "Laboratory Technology", 
         name: "ElectraSyn 2.0 Package", 
@@ -92,7 +92,7 @@ const products = [
       },
 
        {
-        image :  "/product1.webp",
+        image :  "https://niranrevampika.netlify.app/product1.webp",
         price : "$4500",
         product_type: "Laboratory Technology", 
         name: "IKA Plate (RCT digital)", 
@@ -132,7 +132,7 @@ const products = [
       }, 
 
       {
-        image :  "/product4.webp",
+        image :  "https://niranrevampika.netlify.app/product4.webp",
         price : "$9999",
         product_type: "Process Technology", 
         name: "ULTRA-TURRAX UTL", 
@@ -178,7 +178,7 @@ const products = [
       },
 
       {
-        image :  "/process1.webp",
+        image :  "https://niranrevampika.netlify.app/process1.webp",
         price : "$3000",
         product_type: "Process Technology", 
         name: "UTL Economy Line", 
@@ -213,7 +213,7 @@ const products = [
       
 
       {
-        image :  "/process2.webp",
+        image :  "https://niranrevampika.netlify.app/process2.webp",
         price : "$5500",
         product_type: "Process Technology", 
         name: "CMX (recirculation)", 
@@ -235,7 +235,7 @@ const products = [
       },
 
       {
-        image :  "/accessory.webp",
+        image :  "https://niranrevampika.netlify.app/accessory.webp",
         price : "$7600",
         product_type: "Process Technology", 
         name: "DBI (recirculation)", 
@@ -253,7 +253,7 @@ const products = [
       },
 
       {
-        image :  "/bioreactor-habitat-setup.webp",
+        image :  "https://niranrevampika.netlify.app/bioreactor-habitat-setup.webp",
         price : "$6700",
         product_type: "Process Technology", 
         name: "DR-PB (PMB)", 
