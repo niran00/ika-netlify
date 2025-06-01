@@ -2,7 +2,7 @@ const products = [
    
 
       {
-        image : process.env.NEXT_PUBLIC_BASE_URL + "/product2.webp",
+        image :  "/product2.webp",
         price : "$6000",
         product_type: "Laboratory Technology", 
         name: "ElectraSyn 2.0 pro Package", 
@@ -34,7 +34,7 @@ const products = [
       }, 
 
        {
-        image : process.env.NEXT_PUBLIC_BASE_URL + "/product3.webp",
+        image :  "/product3.webp",
         price : "$12000",
         product_type: "Laboratory Technology", 
         name: "ElectraSyn 2.0 Package", 
@@ -92,7 +92,7 @@ const products = [
       },
 
        {
-        image : process.env.NEXT_PUBLIC_BASE_URL + "/product1.webp",
+        image :  "/product1.webp",
         price : "$4500",
         product_type: "Laboratory Technology", 
         name: "IKA Plate (RCT digital)", 
@@ -132,7 +132,7 @@ const products = [
       }, 
 
       {
-        image : process.env.NEXT_PUBLIC_BASE_URL + "/product4.webp",
+        image :  "/product4.webp",
         price : "$9999",
         product_type: "Process Technology", 
         name: "ULTRA-TURRAX UTL", 
@@ -178,7 +178,7 @@ const products = [
       },
 
       {
-        image : process.env.NEXT_PUBLIC_BASE_URL + "/process1.webp",
+        image :  "/process1.webp",
         price : "$3000",
         product_type: "Process Technology", 
         name: "UTL Economy Line", 
@@ -213,7 +213,7 @@ const products = [
       
 
       {
-        image : process.env.NEXT_PUBLIC_BASE_URL + "/process2.webp",
+        image :  "/process2.webp",
         price : "$5500",
         product_type: "Process Technology", 
         name: "CMX (recirculation)", 
@@ -235,7 +235,7 @@ const products = [
       },
 
       {
-        image : process.env.NEXT_PUBLIC_BASE_URL + "/accessory.webp",
+        image :  "/accessory.webp",
         price : "$7600",
         product_type: "Process Technology", 
         name: "DBI (recirculation)", 
@@ -253,7 +253,7 @@ const products = [
       },
 
       {
-        image : process.env.NEXT_PUBLIC_BASE_URL + "/bioreactor-habitat-setup.webp",
+        image :  "/bioreactor-habitat-setup.webp",
         price : "$6700",
         product_type: "Process Technology", 
         name: "DR-PB (PMB)", 
