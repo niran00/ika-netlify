@@ -317,7 +317,7 @@ export default function ProductsPage() {
                 {[1, 2, 3, 4].map((i) => (
                   <img
                     key={i}
-                    src={`/placeholder.svg?height=100&width=100&text=View+${i}`}
+                    src={selectedProduct.image}
                     alt={`Product view ${i}`}
                     className="w-full h-20 object-contain bg-gray-50 rounded cursor-pointer hover:bg-gray-100"
                   />
