@@ -1,5 +1,8 @@
 const products = [
-   
+
+      { name: "Centrifuge", description: "Used to separate sugar crystals from molasses." },
+      { name: "Evaporator", description: "Used to evaporate water from sugar cane juice." },
+      { name: "pH Meter", description: "Used to monitor acidity during sugar extraction." },
 
       {
         image :  "https://niranrevampika.netlify.app/product2.webp",
