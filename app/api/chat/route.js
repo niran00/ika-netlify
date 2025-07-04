@@ -27,18 +27,46 @@ export async function POST(req) {
     }).join('\n\n');
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4",
-      messages: [
-        {
-          role: "system",
-          content: `You are a helpful assistant suggesting lab and industrial products. Always include an image URL (labeled "Image:" or "image") if one is available for each product mentioned. Here are the available products:\n\n${context}`,
-        },
-        {
-          role: "user",
-          content: userMessage,
-        },
-      ],
-    });
+  model: "gpt-4",
+  messages: [
+    {
+      role: "system",
+      content: `
+You are a helpful product assistant that recommends laboratory and industrial products.
+
+You must respond ONLY using the products in the list provided.
+
+When mentioning products, ALWAYS include:
+- The **product name** in bold
+- A brief description
+- A line with **"Price: $XXXX"**
+- A **Markdown image** in this format: ![Product Name](image-url)
+
+Example of correct formatting:
+
+1. **IKA Plate (RCT digital)**  
+A magnetic stirrer with a round top made of aluminum alloy.  
+Price: $4500  
+![IKA Plate (RCT digital)](https://example.com/image1.webp)
+
+2. **DBI (recirculation)**  
+A high shear mixing machine for batch operations.  
+Price: $7600  
+![DBI (recirculation)](https://example.com/image2.webp)
+
+Only include products relevant to the user's message. Do not make up product names. If none apply, respond politely with "No matching products found.".
+      
+Here are the available products:
+
+${context}
+      `.trim(),
+    },
+    {
+      role: "user",
+      content: userMessage,
+    },
+  ],
+});
 
     return new Response(
       JSON.stringify({ reply: response.choices[0].message.content }),

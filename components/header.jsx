@@ -20,7 +20,7 @@ const productSuggestions = [
   { name: "Industrial Mills", category: "Process Technology", type: "product", branch: "process" },
 ]
 
-export function Header() {
+export function Header({ hidden }) {
   const [searchQuery, setSearchQuery] = useState("")
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [suggestions, setSuggestions] = useState([])
@@ -147,7 +147,11 @@ export function Header() {
   ]
 
   return (
-    <header className="border-b bg-white sticky top-0 z-40">
+    <header 
+       className={` border-b bg-white sticky top-0 z-40 fixed top-0 left-0 w-full z-50 transition-opacity duration-300 ${
+        hidden ? "opacity-0 pointer-events-none" : "opacity-100"
+      }`}
+    >
       {/* Top bar */}
       <div className="border-b bg-gray-50 px-4 py-2">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">

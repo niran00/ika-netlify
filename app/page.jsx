@@ -1,11 +1,17 @@
 "use client"
 import Chat from '../components/Chat';
 import React from "react"
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
+import Typewriter from 'typewriter-effect'
+import Entrytyper from  '../components/Entrytyper';
+import { ChevronDown } from 'lucide-react';
+import ChatLauncher from "@/components/ChatLauncher"
+
 import {
   ArrowRight,
   Play,
@@ -292,6 +298,7 @@ function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [currentServiceSlide, setCurrentServiceSlide] = useState(0)
   const [email, setEmail] = useState("")
+  const [showAfterComponent, setShowAfterComponent] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -332,11 +339,89 @@ function HomePage() {
     return visibleServices
   }
 
+  function AfterComponent() {
+  return (
+    <p className="mt-4 text-green-600 opacity-0 animate-fade-in">
+      Your perfect lab solution awaits!
+    </p>
+  )
+}
+
   return (
     <div className="min-h-screen bg-white">
-      <Chat />
+
+       {/* Hero Section */}
+      <section className="relative w-full min-h-screen flex items-center pt-24 pb-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-7xl mx-auto w-full">
+            <h1 className="text-6xl md:text-7xl font-extralight tracking-tighter mb-6 leading-none">
+             Welcome to IKA
+            </h1>
+            <div className="text-lg text-zinc-400 mb-4 max-w-xl" style={{
+              height : 100
+            }}>
+               
+              <Typewriter
+                 onInit={(typewriter) => {
+                   typewriter
+                     .typeString(
+                       'Leverage our advanced AI-powered search to effortlessly explore our extensive range of laboratory products and discover the ideal solutions tailored to your specific needs.'
+                     )
+                     .callFunction(() => {
+                       setShowAfterComponent(true)
+                     })
+                     .start()
+                 }}
+                 options={{
+                   autoStart: false,
+                   loop: false,
+                   cursor: '',
+                   delay: 50,
+                   deleteSpeed: 0,
+                 }}
+                />
+
+              
+    
+
+              
+              
+            </div>
+                
+            {showAfterComponent && <ChatLauncher />}    
+
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-zinc-400 flex flex-col items-center text-center z-10 animate-float">
+               
+                  
+                
+                <div>
+                  <a href="#"><ChevronDown size={48}  /></a>
+                </div>
+              </div>
+                 
+          </div>
+        </div>
+
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full hidden lg:block">
+          <div className="relative w-full h-full">
+             <video
+                className="absolute top-0 left-0 w-full h-full object-cover"
+                src="/IKAPenFinal.mp4" // ✅ if stored in /public/videos
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent"></div>
+          </div>
+        </div>
+      </section>
+
+                 
+
+      {/* <Chat /> */}
       {/* Hero Slider */}
-      <section className="relative h-[70vh] overflow-hidden bg-gradient-to-r from-slate-800 to-slate-700">
+      {/* <section className="relative h-[70vh] overflow-hidden bg-gradient-to-r from-slate-800 to-slate-700">
         <div className="absolute inset-0">
           <img
             src={heroSlides[currentSlide].image || "/placeholder.svg"}
@@ -364,10 +449,10 @@ function HomePage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Slider Controls */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
+        {/* <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
@@ -395,11 +480,11 @@ function HomePage() {
         >
           <ChevronRight className="h-6 w-6" />
         </Button>
-      </section>
+      </section> */}
 
 
        {/* Company Introduction */}
-      <section className="py-16 bg-white border-b">
+      {/* <section className="py-16 bg-white border-b">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-[#00599c] mb-4">IKA</h2>
           <p className="text-xl text-gray-600 mb-8 font-normal">designed to work perfectly</p>
@@ -409,7 +494,7 @@ function HomePage() {
             scientists and engineers worldwide for over 100 years.
           </p>
         </div>
-      </section>
+      </section> */}
 
        {/* Recommended Products */}
       <section className="py-16 bg-gray-50 border-t">
