@@ -395,19 +395,19 @@ export default function HomepageClient(data : any){
         <div className="mt-6 flex items-center justify-center gap-4">
               <a
                 className="flex items-center justify-center w-12 h-12 border-2 border-gray-300 rounded-full shadow-sm hover:border-blue-500 transition-all duration-200"
-                href={`/${lang}/homeV2`}
+                href={`/us/homeV2`}
               >
                 <span className="fi fi-us text-xl"></span>
               </a>
               <a
                 className="flex items-center justify-center w-12 h-12 border-2 border-gray-300 rounded-full shadow-sm hover:border-blue-500 transition-all duration-200"
-                href={`/${lang}/homeV2`}
+                href={`/de/homeV2`}
               >
                 <span className="fi fi-de text-xl"></span>
               </a>
               <a
                 className="flex items-center justify-center w-12 h-12 border-2 border-gray-300 rounded-full shadow-sm hover:border-blue-500 transition-all duration-200"
-                href={`/${lang}/homeV2`}
+                href={`/th/homeV2`}
               >
                 <span className="fi fi-th text-xl"></span>
               </a>

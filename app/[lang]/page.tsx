@@ -7,7 +7,7 @@ import { getDictionary } from "@/get-dictionary";
 
 
 
-
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const { lang } = await params;
