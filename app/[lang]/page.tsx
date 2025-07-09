@@ -20,6 +20,6 @@ export async function generateMetadata({ params }: { params: { lang: string } })
 
 export default async function HomePage() {
   // This makes loading.tsx show
-  await new Promise((resolve) => setTimeout(resolve, 3500));
+  await new Promise((resolve) => setTimeout(resolve, 5000));
   return <Homepage2Client />;
 }
