@@ -10,6 +10,7 @@ import Link from "next/link"
 import ChatLauncher from "../ChatLauncher"
 import { useDictionary } from "@/context/dictionary-context"
 import "flag-icons/css/flag-icons.min.css";
+import Preloader from "../preloader"
 
 import {
   ArrowRight,
@@ -307,6 +308,10 @@ export default function HomepageClient(data : any){
   const [email, setEmail] = useState("")
   const [showAfterComponent, setShowAfterComponent] = useState(false)
 
+  const [loading, setLoading] = useState(true)
+  
+
+ 
   console.log(data);
 
    const { dict, lang } = useDictionary()
@@ -328,6 +333,18 @@ export default function HomepageClient(data : any){
     }, 5000)
     return () => clearInterval(serviceTimer)
   }, [])
+
+   useEffect(() => {
+    const delay = setTimeout(() => {
+      setLoading(false)
+    }, 5000)
+
+    return () => clearTimeout(delay)
+  }, [])
+
+  if (loading) {
+    return <Preloader />
+  }
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
@@ -395,7 +412,7 @@ export default function HomepageClient(data : any){
         <div className="mt-6 flex items-center justify-center gap-4">
               <a
                 className="flex items-center justify-center w-12 h-12 border-2 border-gray-300 rounded-full shadow-sm hover:border-blue-500 transition-all duration-200"
-                href={`/us/homeV2`}
+                href={`/en/homeV2`}
               >
                 <span className="fi fi-us text-xl"></span>
               </a>

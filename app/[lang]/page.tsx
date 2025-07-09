@@ -7,8 +7,6 @@ import { getDictionary } from "@/get-dictionary";
 
 
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const { lang } = await params;
   const dict = await getDictionary(lang || "en")
@@ -20,6 +18,5 @@ export async function generateMetadata({ params }: { params: { lang: string } })
 
 export default async function HomePage() {
   // This makes loading.tsx show
-  await new Promise((resolve) => setTimeout(resolve, 5000));
   return <Homepage2Client />;
 }
