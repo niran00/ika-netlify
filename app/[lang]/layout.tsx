@@ -1,10 +1,13 @@
-"use client"
+
 import { Inter } from "next/font/google"
-import "./globals.css"
+import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+
+import { getDictionary } from "@/get-dictionary"
+import { DictionaryProvider } from "@/context/dictionary-context";
 
 const inter = Inter({ subsets: ["latin"] })
 import React, { useEffect, useState } from "react";
@@ -22,37 +25,56 @@ function getBranchFromPath(pathname) {
   return "laboratory"
 }
 
+export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = await getDictionary(lang || "en")
+  return {
+    title: dict.metaTitle,
+    description: dict.metaDescription,
+  }
+}
 
 
 
-export default function RootLayout({ children }) {
 
-  const [showNavbar, setShowNavbar] = useState(false);
+export default async function RootLayout({
+  children,
+  params, 
+}: Readonly<{
+  children: React.ReactNode
+  params : Promise<{lang : string}>
+}>) {
+  const {lang} = await params
+  const dict = await getDictionary(lang || "en");
+  // const [showNavbar, setShowNavbar] = useState(true);
 
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowNavbar(window.scrollY > 10);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setShowNavbar(window.scrollY > 10);
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
+    
     <html lang="en" suppressHydrationWarning>
+      <DictionaryProvider lang={lang} dict={dict}>
       <body className={inter.className}>
         <SidebarProvider defaultOpen={false}>
           <div className="flex min-h-screen w-full flex-col md:flex-row">
             <AppSidebar />
             <div className="flex-1 flex flex-col">
-              <Header hidden={!showNavbar} />
+              <Header />
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
           </div>
         </SidebarProvider>
       </body>
+      </DictionaryProvider>
     </html>
   )
 }

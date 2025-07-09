@@ -1,5 +1,5 @@
 "use client"
-import Chat from '../components/Chat';
+import Chat from '@/components/Chat';
 import React from "react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import Typewriter from 'typewriter-effect'
-import Entrytyper from  '../components/Entrytyper';
+import Entrytyper from  '@/components/Entrytyper';
 import { ChevronDown } from 'lucide-react';
 import ChatLauncher from "@/components/ChatLauncher"
 
@@ -294,7 +294,8 @@ const recommendedProducts = [
   },
 ]
 
-function HomePage() {
+function HomePageClient() {
+   
   const [currentSlide, setCurrentSlide] = useState(0)
   const [currentServiceSlide, setCurrentServiceSlide] = useState(0)
   const [email, setEmail] = useState("")
@@ -567,8 +568,9 @@ function HomePage() {
       </section>
 
 
+
     </div>
   )
 }
 
-export default HomePage
+export default HomePageClient

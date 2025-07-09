@@ -88,22 +88,66 @@ export default function ChatLauncher() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} >
-        <input
-          type="text"
-          value={input}
-          placeholder="Ask something..."
-          onChange={(e) => setInput(e.target.value)}
-          style={{
-            padding: "12px 16px",
-            borderRadius: 20,
-            border: "1px solid #ccc",
-            width: "100%",
-            maxWidth: 400,
-            fontSize: 16,
-          }}
-        />
-      </form>
+      
+      <form
+  onSubmit={handleSubmit}
+  style={{
+    position: "relative",
+    width: "100%",
+    maxWidth: 800,
+    margin: "0 auto",
+  }}
+>
+  <input
+    type="text"
+    value={input}
+    placeholder="Ask something..."
+    onChange={(e) => setInput(e.target.value)}
+    style={{
+      padding: "12px 48px 12px 16px", // extra right padding for the button
+      borderRadius: 20,
+      border: "1px solid #ccc",
+      width: "100%",
+      fontSize: 16,
+    }}
+  />
+
+  <button
+    type="submit"
+    style={{
+      position: "absolute",
+      top: "50%",
+      right: 12,
+      transform: "translateY(-50%)",
+      background: "transparent",
+      border: "none",
+      cursor: "pointer",
+      padding: 4,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      color: "#555",
+    }}
+    aria-label="Send"
+  >
+    {/* Search Icon (you can change this to a paper plane or something else) */}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+      style={{ width: 20, height: 20 }}
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+      />
+    </svg>
+  </button>
+</form>
+
 
       <ChatModal
         isOpen={modalOpen}

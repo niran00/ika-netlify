@@ -148,7 +148,7 @@ export function Header({ hidden }) {
 
   return (
     <header 
-       className={` border-b bg-white sticky top-0 z-40 fixed top-0 left-0 w-full z-50 transition-opacity duration-300 ${
+       className={` border-b bg-white sticky top-0 z-40  top-0 left-0 w-full z-50 transition-opacity duration-300 ${
         hidden ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
@@ -227,6 +227,21 @@ export function Header({ hidden }) {
             </div>
           </div>
 
+           {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-6 text-sm">
+            {navigationItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => router.push(item.href)}
+                className={`hover:text-blue-600 transition-colors ${
+                  pathname === item.href ? "text-blue-600 font-medium" : "text-gray-700"
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+          </nav>
+
           {/* Search - adjusted for mobile */}
           <div className="flex-1 max-w-md mx-2 sm:mx-8 relative">
             <div className="relative">
@@ -294,20 +309,7 @@ export function Header({ hidden }) {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            {navigationItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => router.push(item.href)}
-                className={`hover:text-blue-600 transition-colors ${
-                  pathname === item.href ? "text-blue-600 font-medium" : "text-gray-700"
-                }`}
-              >
-                {item.name}
-              </button>
-            ))}
-          </nav>
+         
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
