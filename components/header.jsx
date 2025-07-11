@@ -696,49 +696,6 @@ const defaultFeaturedContent = {
               </div>
             </div>
 
-            {/* Bottom Section - Product Category Cards */}
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <div className="grid grid-cols-4 gap-6">
-                {[
-                  {
-                    title: "Laboratory & Analytical Technology",
-                    image: "/placeholder.svg",
-                    description: "Advanced equipment for research and development applications",
-                  },
-                  {
-                    title: "BioProcessing Solutions",
-                    image: "/placeholder.svg",
-                    description: "Bioreactor systems for pharmaceutical applications",
-                  },
-                  {
-                    title: "EV Battery Solutions",
-                    image: "/placeholder.svg",
-                    description: "Cutting-edge solutions for battery manufacturing",
-                  },
-                  {
-                    title: "Process Technology",
-                    image: "/placeholder.svg",
-                    description: "Industrial-scale processing equipment",
-                  },
-                ].map((card, index) => (
-                  <div key={index} className="group cursor-pointer">
-                    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
-                      <img
-                        src={card.image || "/placeholder.svg"}
-                        alt={card.title}
-                        className="w-full h-24 object-cover"
-                      />
-                      <div className="p-4">
-                        <h5 className="font-semibold text-sm text-gray-900 mb-2 group-hover:text-[#00599c] transition-colors">
-                          {card.title}
-                        </h5>
-                        <p className="text-xs text-gray-600 leading-relaxed">{card.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       )}
