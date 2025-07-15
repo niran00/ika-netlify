@@ -17,7 +17,7 @@ export default function Preloader() {
       }}
     >
       {/* Spinner */}
-      <CircleLoader color="#00539f" size={120} />
+      <CircleLoader color="#00539f" size={90} />
 
       {/* Centered Text */}
       <div
@@ -29,7 +29,7 @@ export default function Preloader() {
           pointerEvents: "none",
         }}
       >
-        IKA
+        {/* IKA */}
       </div>
     </div>
   );
