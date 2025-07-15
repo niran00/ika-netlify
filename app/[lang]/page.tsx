@@ -4,7 +4,9 @@ import Homepage2Client from "@/components/page-components/homepage2Client";
 import { locales } from "@/lib/lang-utils"
 import { Metadata } from "next"
 import { getDictionary } from "@/get-dictionary";
-
+import Homepage3Client from "@/components/page-components/homepage3Client";
+import Homepage4Client from "@/components/page-components/homepage4Client";
+import OverlappingSections from "@/components/page-components/overlappingSections";
 
 
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
@@ -18,5 +20,11 @@ export async function generateMetadata({ params }: { params: { lang: string } })
 
 export default async function HomePage() {
   // This makes loading.tsx show
-  return <Homepage2Client />;
+  return (
+    <>
+      <Homepage4Client></Homepage4Client>
+    </>
+  )
+    
+  ;
 }

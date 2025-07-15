@@ -302,7 +302,7 @@ interface data{
   data : any;
 }
 
-export default function HomepageClient(data : any){
+export default function Homepage2Client(data : any){
   const [currentSlide, setCurrentSlide] = useState(0)
   const [currentServiceSlide, setCurrentServiceSlide] = useState(0)
   const [email, setEmail] = useState("")
@@ -398,7 +398,7 @@ export default function HomepageClient(data : any){
   </div>
 
   {/* Foreground Content */}
-  <div className="container relative z-5 h-[75vh] mx-auto px-4 flex flex-col lg:justify-between justify-center py-10">
+  <div className="container relative z-5 h-[75vh]  mx-auto px-4 flex flex-col lg:justify-between justify-center py-10">
     {/* Centered Heading */}
     <div className="md:flex-grow flex-col flex items-center md:justify-center">
       <Image
@@ -441,78 +441,10 @@ export default function HomepageClient(data : any){
     </div>
 
   </div>
-
+      
   
 </section>
 
-<section className="py-16 bg-gray-50 border-t">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-center mb-12">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-2">Featured Products</h2>
-              <p className="text-lg text-gray-600">Professional laboratory equipment trusted by scientists worldwide</p>
-            </div>
-            <Button
-              variant="outline"
-              className="hidden md:flex border-[#00599c] text-[#00599c] hover:bg-[#00599c] hover:text-white"
-            >
-              View All Products <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left side - 2x2 grid of smaller products */}
-            <div className="col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {recommendedProducts.slice(0, 4).map((product) => (
-                <Card
-  key={product.id}
-  className="overflow-hidden hover:shadow-lg transform transition-transform duration-300 hover:scale-105 bg-white"
->
-
-                  <div className="relative">
-                    <img
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      className="w-full h-40 object-contain p-4"
-                    />
-                   
-                  </div>
-                  <CardContent className="p-4">
-                    <h3 className="font-semibold text-lg mb-1">{product.name}</h3>
-                    <p className="text-sm text-gray-500 mb-3">{product.category}</p>
-                    <div className="flex items-center gap-2 mb-3">
-                    
-                    
-                    </div>
-                    
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Right side - Featured product */}
-            <div className="col-span-1">
-              <Card className="overflow-hidden content-end hover:shadow-lg transform transition-transform duration-300 hover:scale-105 bg-white h-full">
-
-                <div className="relative">
-                  <img
-                    src={recommendedProducts[4].image || "/placeholder.svg"}
-                    alt={recommendedProducts[4].name}
-                    className="w-full object-contain p-6"
-                  />
-                  
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="font-bold text-xl mb-2">{recommendedProducts[4].name}</h3>
-                  <p className="text-gray-600 mb-3">{recommendedProducts[4].category}</p>
-                 
-                 
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
 
 
         </>
