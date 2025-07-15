@@ -10,7 +10,7 @@ import { ChevronDown, Leaf, Recycle, Battery, Award, Trophy, FlaskRoundIcon as F
 
 import Preloader from "../preloader";
 
-import OverlappingSections from "@/components/page-components/overlappingSections";
+import OverlappingSections from "@/components/overlappingSections";
 
 export default function Homepage4Client() {
   const [scrollY, setScrollY] = useState(0);

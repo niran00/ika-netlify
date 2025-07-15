@@ -6,7 +6,7 @@ import { Metadata } from "next"
 import { getDictionary } from "@/get-dictionary";
 import Homepage3Client from "@/components/page-components/homepage3Client";
 import Homepage4Client from "@/components/page-components/homepage4Client";
-import OverlappingSections from "@/components/page-components/overlappingSections";
+import OverlappingSections from "@/components/overlappingSections";
 
 
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
