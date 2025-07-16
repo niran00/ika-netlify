@@ -5,7 +5,7 @@ import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-
+import { Metadata } from "next"
 import { getDictionary } from "@/get-dictionary"
 import { DictionaryProvider } from "@/context/dictionary-context";
 
@@ -18,7 +18,7 @@ import React, { useEffect, useState } from "react";
 //     generator: 'v0.dev'
 // }
 
-function getBranchFromPath(pathname) {
+function getBranchFromPath(pathname : string) { 
   if (pathname.startsWith("/process")) return "process"
   if (pathname.startsWith("/bioprocessing")) return "bioprocessing"
   if (pathname.startsWith("/ev-battery")) return "ev-battery"
@@ -67,7 +67,7 @@ export default async function RootLayout({
           <div className="flex min-h-screen w-full flex-col md:flex-row">
             <AppSidebar />
             <div className="flex-1 flex flex-col">
-              <Header />
+              <Header hidden={false} />
               <main className="flex-1">{children}</main>
               <Footer />
             </div>

@@ -10,9 +10,9 @@ import { ChevronDown, Leaf, Recycle, Battery, Award, Trophy, FlaskRoundIcon as F
 
 import Preloader from "../preloader";
 
-import OverlappingSections from "@/components/overlappingSections";
+import OverlappingSectionsB from "@/components/overlappingSectionsB";
 
-export default function Homepage4Client() {
+export default function HomepageClientV6() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -47,24 +47,11 @@ export default function Homepage4Client() {
       
 
       {/* Hero Section */}
-      <div
-        className="h-[75vh] w-full bg-cover bg-center grid place-items-center"
-        style={{
-          backgroundImage: `url('/abstract-waves.jpg')`,
-          transform: `translateY(${Math.min(scrollY * 0.4, 80)}px)`,
-          transition: "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
-        }}
-      >
-        <Homebanner></Homebanner>
-      </div>
+  
 
       {/* Content Card */}
       <div
-        className="bg-white bg-opacity-80 backdrop-blur-md shadow-xl rounded-lg mx-4 lg:mx-12 -mt-16 p-8"
-        style={{
-          transform: `translateY(${-Math.min(scrollY * 0.4, 80)}px)`,
-          transition: "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
-        }}
+        className="bg-white rounded-lg p-8"
       >
         
 
@@ -316,7 +303,7 @@ export default function Homepage4Client() {
        
       </div>
 
-      <OverlappingSections/> 
+      <OverlappingSectionsB/> 
      
     </>
   );

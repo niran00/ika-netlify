@@ -111,7 +111,7 @@ export default function Homepage2Client(data : any){
                   <div className="text-center mt-3 text-white text-sm  rounded-md p-1 bg-white opacity-90 font-bold mb-4">
                     <p className="text-zinc-400">{dict.searchTxt}</p>
                   </div>
-                  <div className="w-full text-center mt-3">
+                  <div className="w-full text-center">
                     <ChatLauncher></ChatLauncher>
                   </div>
 

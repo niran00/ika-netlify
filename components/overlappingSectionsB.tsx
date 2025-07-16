@@ -2,7 +2,11 @@
 
 import { useEffect, useRef } from 'react';
 
-export default function OverlappingSections() {
+import { Button } from './ui/button';
+import { Card, CardContent } from "@/components/ui/card"
+import { ChevronDown, Leaf, Recycle, Battery, Award, Trophy, FlaskRoundIcon as Flask, Cog, Dna } from "lucide-react"
+
+export default function OverlappingSectionsB() {
   const panelsRef = useRef<HTMLElement[]>([]);
   const setPanelRef =
     (index: number) =>
@@ -41,11 +45,11 @@ export default function OverlappingSections() {
         {/* --------- Panel 1 --------- */}
         <section ref={setPanelRef(0)} className="panel panelA shadow-lg bg-gray-50">
           <div className="content">
-            <img src="/start_4_divisions_lab.webp" alt="Product 1" />
+            <img src="/placeholder.svg" alt="Product 1" />
             <div className="text">
-              <h2>Laboratory Technology</h2>
+              <h2>Dummy Section 1</h2>
               <p>Engineered for precision and scalability in every lab setting.</p>
-              <button>View Products</button>
+              <button>Learn More</button>
             </div>
           </div>
         </section>
@@ -53,11 +57,11 @@ export default function OverlappingSections() {
         {/* --------- Panel 2 --------- */}
         <section style={{background: "#f5f5f7"}} ref={setPanelRef(1)} className="panel shadow-lg panelB ">
           <div className="content">
-            <img src="/start_4_divisions_proc.webp" alt="Product 2" />
+            <img src="/placeholder.svg" alt="Product 2" />
             <div className="text">
-              <h2>Process Technology</h2>
+              <h2>Dummy Section 2</h2>
               <p>Reduce waste and enhance efficiency with our sustainable designs.</p>
-              <button>View Products</button>
+              <button>Learn More</button>
             </div>
           </div>
         </section>
@@ -65,11 +69,11 @@ export default function OverlappingSections() {
         {/* --------- Panel 3 --------- */}
         <section ref={setPanelRef(2)} className="panel panelC shadow-lg bg-gray-50">
           <div className="content">
-            <img src="/start_4_divisions_bat.webp" alt="Product 3" />
+            <img src="/placeholder.svg" alt="Product 3" />
             <div className="text">
-              <h2>EV Battery Solutions</h2>
+              <h2>Dummy Section 3</h2>
               <p>Reduce waste and enhance efficiency with our sustainable designs</p>
-              <button>View Products</button>
+              <button>Learn More</button>
             </div>
           </div>
         </section>
@@ -77,17 +81,17 @@ export default function OverlappingSections() {
         {/* --------- Panel 4 --------- */}
         <section  style={{background: "#F4F2EE"}}  ref={setPanelRef(3)} className="panel shadow-lg panelD">
           <div className="content">
-            <img src="/start_4_divisions_bio_new4.webp" alt="Product 4" />
+            <img src="/placeholder.svg" alt="Product 4" />
             <div className="text">
-              <h2>BioProcessing Solutions</h2>
+              <h2>Dummy Section 4</h2>
               <p>Reduce waste and enhance efficiency with our sustainable designs.</p>
-              <button>View Products</button>
+              <button>Learn More</button>
             </div>
           </div>
         </section>
 
         {/* --------- Panel 5 --------- */}
-        <section style={{margin : "0px", width : "100%", borderRadius: "0px"}} ref={setPanelRef(4)} className="panel panelE bg-white">
+         <section style={{margin : "0px", width : "100%", borderRadius: "0px"}} ref={setPanelRef(4)} className="panel panelE bg-white">
           <div className="content">
             <div className="text">
               <h2>Our Services</h2>
