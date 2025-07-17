@@ -12,7 +12,7 @@ import Preloader from "../preloader";
 
 import OverlappingSectionsB from "@/components/overlappingSectionsB";
 
-export default function HomepageClientV6() {
+export default function HomepageClientV4() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {

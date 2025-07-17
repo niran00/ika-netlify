@@ -365,7 +365,7 @@ const defaultFeaturedContent = {
       }`}
     >
       {/* Top bar */}
-      <div className="border-b bg-gray-50 px-4 py-2">
+      <div className="border-b hidden bg-gray-50 px-4 py-2">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
           {/* Branch selector - visible on desktop, hidden on mobile */}
           <div className="hidden md:flex items-center gap-4">
@@ -478,18 +478,7 @@ const defaultFeaturedContent = {
             )}
           </div>
 
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" className="text-xs px-2">
-              <Globe className="h-4 w-4 mr-1" />
-              <span className="hidden sm:inline">EN</span>
-            </Button>
-            <Button variant="ghost" size="sm" className="text-xs px-2">
-              <User className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" className="text-xs px-2">
-              <ShoppingCart className="h-4 w-4" />
-            </Button>
-          </div>
+         
         </div>
       </div>
 
@@ -521,7 +510,7 @@ const defaultFeaturedContent = {
             ))}
           </nav> */}
 
-          <nav className="hidden lg:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
               {navigationItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.hasDropdown ? (
@@ -546,6 +535,18 @@ const defaultFeaturedContent = {
               ))}
             </nav>
 
+            <div className="hidden md:block flex items-center gap-4">
+             <Button variant="ghost" size="sm" className="text-xs px-2">
+               <Globe className="h-4 w-4 mr-1" />
+               <span className="hidden sm:inline">EN</span>
+             </Button>
+             <Button variant="ghost" size="sm" className="text-xs px-2">
+               <User className="h-4 w-4" />
+             </Button>
+             <Button variant="ghost" size="sm" className="text-xs px-2">
+               <ShoppingCart className="h-4 w-4" />
+             </Button>
+            </div>
 
 
          

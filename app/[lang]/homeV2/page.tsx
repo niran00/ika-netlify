@@ -6,7 +6,7 @@ import HomepageClient2 from "@/components/page-components/homepage2Client";
 import { locales } from "@/lib/lang-utils"
 import { Metadata } from "next"
 import { getDictionary } from "@/get-dictionary";
-import HomepageClientV3 from "@/components/page-components/homepageClientV3";
+import HomepageClientV2 from "@/components/page-components/homepageClientV2";
 
 // Tell Next.js to pre-render for all languages
 export async function generateStaticParams() {
@@ -29,6 +29,6 @@ export default async function HomepageV2({
 
   // ✅ Render plain JSX — no useState/useEffect needed
   return (
-        <HomepageClientV3></HomepageClientV3>
+        <HomepageClientV2></HomepageClientV2>
   );
 }
