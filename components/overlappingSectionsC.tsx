@@ -43,7 +43,8 @@ export default function OverlappingSectionsB() {
     <>
       <div className="stack">
         {/* --------- Panel 1 --------- */}
-        <section ref={setPanelRef(0)} className="panel panelA shadow-lg bg-gray-50">
+
+        {/* <section ref={setPanelRef(0)} className="panel panelA shadow-lg bg-gray-50">
           <div className="content">
             <img src="/placeholder.svg" alt="Product 1" />
             <div className="text">
@@ -52,10 +53,11 @@ export default function OverlappingSectionsB() {
               <button>Learn More</button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* --------- Panel 2 --------- */}
-        <section style={{background: "#f5f5f7"}} ref={setPanelRef(1)} className="panel shadow-lg panelB ">
+        
+        {/* <section style={{background: "#f5f5f7"}} ref={setPanelRef(1)} className="panel shadow-lg panelB ">
           <div className="content">
             <img src="/placeholder.svg" alt="Product 2" />
             <div className="text">
@@ -64,10 +66,11 @@ export default function OverlappingSectionsB() {
               <button>Learn More</button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* --------- Panel 3 --------- */}
-        <section ref={setPanelRef(2)} className="panel panelC shadow-lg bg-gray-50">
+        
+        {/* <section ref={setPanelRef(2)} className="panel panelC shadow-lg bg-gray-50">
           <div className="content">
             <img src="/placeholder.svg" alt="Product 3" />
             <div className="text">
@@ -76,10 +79,11 @@ export default function OverlappingSectionsB() {
               <button>Learn More</button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* --------- Panel 4 --------- */}
-        <section  style={{background: "#F4F2EE"}}  ref={setPanelRef(3)} className="panel shadow-lg panelD">
+       
+        {/* <section  style={{background: "#F4F2EE"}}  ref={setPanelRef(3)} className="panel shadow-lg panelD">
           <div className="content">
             <img src="/placeholder.svg" alt="Product 4" />
             <div className="text">
@@ -88,7 +92,7 @@ export default function OverlappingSectionsB() {
               <button>Learn More</button>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* --------- Panel 5 --------- */}
         <section style={{height : "100%", margin : "0px", width : "100%", borderRadius: "0px"}} ref={setPanelRef(4)} className="panel panelE bg-white">

@@ -1,8 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { X,Zap,FlaskConical,Cog,Microscope, Search, ShoppingCart, User, Globe, Menu, ChevronDown } from "lucide-react"
-
+import { X,Zap,FlaskConical,Cog,Microscope, Search, ShoppingCart, User, Globe, Menu, ChevronDown, ChevronLeft } from "lucide-react"
 // import {
 //   Search,
 //   ShoppingCart,
@@ -39,6 +38,8 @@ export function Header({ hidden }) {
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [suggestions, setSuggestions] = useState([])
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileMenuLvl2Open, setMobileMenuLvl2Open] = useState(false)
+  const [productBranch, setProductBranch] = useState("")
   const [isMobile, setIsMobile] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
@@ -51,10 +52,12 @@ export function Header({ hidden }) {
   const hoverTimeoutRef = useRef(null)
 
 
+  const [activeDropdown, setActiveDropdown] = useState(null);
+
 
 const megaMenuData = {
   "LABORATORY TECHNOLOGY": {
-    icon: Microscope,
+    image: "/start_4_divisions_lab.webp",
     color: "bg-[#00599c]",
     description: "Advanced laboratory equipment for research and development",
     isActive: true,
@@ -86,7 +89,7 @@ const megaMenuData = {
     ],
   },
   "BIOPROCESSING SOLUTIONS": {
-    icon: FlaskConical,
+    image: "/start_4_divisions_bio_new4.webp",
     color: "bg-gray-600",
     description: "Advanced bioreactor systems for pharmaceutical applications",
     isActive: false,
@@ -102,7 +105,7 @@ const megaMenuData = {
     ],
   },
   "EV BATTERY SOLUTIONS": {
-    icon: Zap,
+    image: "/start_4_divisions_bat.webp",
     color: "bg-gray-600",
     description: "Cutting-edge solutions for EV battery manufacturing",
     isActive: false,
@@ -118,7 +121,7 @@ const megaMenuData = {
     ],
   },
   "PROCESS TECHNOLOGY": {
-    icon: Cog,
+    image: "/process_b.webp",
     color: "bg-gray-600",
     description: "Industrial-scale processing equipment and pilot plants",
     isActive: false,
@@ -152,7 +155,7 @@ const megaMenuData = {
 }
 
 const navigationItems = [
-  { name: "Products", href: "/products", hasDropdown: true },
+  { name: "Products", hasDropdown: true },
   { name: "Services", href: "/services", hasDropdown: false },
   { name: "Knowledge Center", href: "/knowledge", hasDropdown: false },
   { name: "Company", href: "/company", hasDropdown: true },
@@ -160,16 +163,25 @@ const navigationItems = [
   { name: "Contact", href: "/contact", hasDropdown: true },
 ]
 
+const productSubItems = [
+  { label: "Lab", image: "/start_4_divisions_lab.webp"},
+  { label: "Process", image: "/process_sized.jpg"},
+  { label: "Battery", image: "/start_4_divisions_bat.webp" },
+  { label: "Bio", image: "/start_4_divisions_bio_new4.webp" },
+];
+
+
 // Product images for hover states
 const productImages = [
-  "/placeholder.svg",
-  "/placeholder.svg",
-  "/placeholder.svg",
+  "/process_sized.jpg",
+  "/start_4_divisions_bio_new4.webp",
+  "/start_4_divisions_proc.webp",
+  "/proc_technikum.jpg"
 ]
 
 // Default featured content
 const defaultFeaturedContent = {
-  image: "/placeholder.svg",
+  image: "/process-banner.webp",
   title: "DISTILLATION HAS NEVER BEEN MORE EASY & INTELLIGENT",
   description: "Discover our latest rotary evaporator technology for efficient and intelligent distillation processes.",
 }
@@ -186,11 +198,14 @@ const defaultFeaturedContent = {
     return () => window.removeEventListener("resize", checkIfMobile)
   }, [])
 
-  const handleNavigate = (href) => {
-    router.push(href)
-    setMobileMenuOpen(false)
-    setShowMegaMenu(false)
+  const handleNavigate = (href, hasDropdown, name) => {
+  if (hasDropdown) {
+    // Just toggle the dropdown — no navigation
+    setActiveDropdown(activeDropdown === name ? null : name);
+  } else if (href) {
+    router.push(href);
   }
+};
 
   const handleMouseEnter = () => {
     if (hoverTimeoutRef.current) {
@@ -203,7 +218,7 @@ const defaultFeaturedContent = {
     hoverTimeoutRef.current = setTimeout(() => {
       setShowMegaMenu(false)
       setHoveredProduct(null) // Reset hovered product when menu closes
-    }, 100) // Small delay to prevent flickering
+    }, 1000) // Small delay to prevent flickering
   }
 
   const handleProductHover = (productName) => {
@@ -525,8 +540,12 @@ const defaultFeaturedContent = {
                     </div>
                   ) : (
                     <button
-                      onClick={() => handleNavigate(item.href)}
-                      className="text-gray-700 hover:text-[#00599c] transition-colors py-2 text-sm font-medium"
+                      onClick={() => handleNavigate(item.href, item.hasDropdown, item.name)}
+                      className={`block w-full text-left py-2 px-3 rounded-md ${
+                        router.pathname === item.href
+                          ? "bg-blue-50 text-blue-600 font-medium"
+                          : "text-gray-700 hover:bg-gray-50"
+                      }`}
                     >
                       {item.name}
                     </button>
@@ -567,26 +586,52 @@ const defaultFeaturedContent = {
                 <div className="overflow-y-auto h-full py-4">
                   {/* Mobile Navigation */}
                   <div className="px-4 pb-4 border-b">
-                    <p className="text-sm font-medium text-gray-500 mb-2">Navigation</p>
+                    <p className="text-sm font-medium text-gray-500 mb-2">Navigation 1</p>
+
                     <nav className="space-y-1">
                       {navigationItems.map((item) => (
-                        <button
-                          key={item.name}
-                          onClick={() => handleNavigate(item.href)}
-                          className={`block w-full text-left py-2 px-3 rounded-md ${
-                            pathname === item.href
-                              ? "bg-blue-50 text-blue-600 font-medium"
-                              : "text-gray-700 hover:bg-gray-50"
-                          }`}
-                        >
-                          {item.name}
-                        </button>
+                        <div key={item.name}>
+                          <button
+                            onClick={() => handleNavigate(item.href, item.hasDropdown, item.name)}
+                            className={`block w-full text-left py-2 px-3 rounded-md ${
+                              router.pathname === item.href
+                                ? "bg-blue-50 text-blue-600 font-medium"
+                                : "text-gray-700 hover:bg-gray-50"
+                            }`}
+                          >
+                            {item.name}
+                          </button>
+                          
+                          {/* Show dropdown images if item is active */}
+                          {item.name === "Products" && activeDropdown === "Products" && (
+                            <div className="grid grid-cols-2 gap-4 p-4">
+                              {productSubItems.map((sub) => (
+                                <div
+                                  key={sub.label}
+                                  className="cursor-pointer hover:scale-105 transition-transform"
+                                  onClick={() => {
+                                    setMobileMenuLvl2Open(true)
+                                    setProductBranch(sub.label)
+                                  }}
+                                >
+                                  <img
+                                    src={sub.image}
+                                    alt={sub.label}
+                                    className="w-full h-24 object-cover rounded-md"
+                                  />
+                                  <p className="text-center mt-2 text-sm font-medium">{sub.label}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       ))}
                     </nav>
+
                   </div>
 
                   {/* Mobile Branch Selector */}
-                  <div className="px-4 py-4 border-b">
+                  {/* <div className="px-4 py-4 border-b">
                     <p className="text-sm font-medium text-gray-500 mb-2">Divisions</p>
                     <div className="space-y-1">
                       {branchOptions.map((option) => (
@@ -606,6 +651,29 @@ const defaultFeaturedContent = {
                         </button>
                       ))}
                     </div>
+                  </div> */}
+
+                 
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+
+          <div className="hidden">
+            <Sheet open={mobileMenuLvl2Open} onOpenChange={setMobileMenuLvl2Open}>
+              <SheetContent side="left" id="menuLvl2" className="w-full h-full p-0 ">
+                <SheetHeader className="p-4 border-b">
+                  <div className="flex items-center gap-2">
+                       <ChevronLeft onClick={() => {setMobileMenuLvl2Open(false)} }></ChevronLeft>
+                       <SheetTitle className="text-left m-0">Back</SheetTitle>
+                  </div>
+                  
+                </SheetHeader>
+
+                <div className="overflow-y-auto h-full py-4">
+                  {/* Mobile Navigation */}
+                  <div className="px-4 pb-4 border-b">
+                    <p className="text-sm font-medium text-gray-500 mb-2">IKA/Products/{productBranch}</p>
                   </div>
 
                  
@@ -631,18 +699,27 @@ const defaultFeaturedContent = {
                   {Object.entries(megaMenuData).map(([categoryKey, categoryData]) => (
                     <div
                       key={categoryKey}
-                      className={`p-3 rounded-lg cursor-pointer transition-colors ${
+                      className={`p-3 rounded-lg cursor-pointer transition-colors flex items-center gap-3 ${
                         categoryData.isActive ? "bg-[#00599c] text-white" : "text-gray-700 hover:bg-gray-50"
                       }`}
                     >
-                      <div className="flex items-center gap-3">
-                        <div className={`p-1.5 rounded ${categoryData.isActive ? "bg-white/20" : "bg-gray-100"}`}>
-                          {React.createElement(categoryData.icon, {
-                            className: `h-4 w-4 ${categoryData.isActive ? "text-white" : "text-gray-600"}`,
-                          })}
-                        </div>
-                        <span className="text-sm font-medium">{categoryKey}</span>
+                      {/* Icon/Image box */}
+                      <div
+                        className={`w-20 h-20 p-1.5 rounded flex items-center justify-center flex-shrink-0 ${
+                          categoryData.isActive ? "bg-white/20" : "bg-gray-100"
+                        }`}
+                      >
+                        <img
+                          src={categoryData.image}
+                          alt={categoryKey}
+                          className={`max-w-full max-h-full object-contain ${
+                            categoryData.isActive ? "brightness-125" : "grayscale opacity-70"
+                          }`}
+                        />
                       </div>
+                        
+                      {/* Text label */}
+                      <span className="text-sm font-medium">{categoryKey}</span>
                     </div>
                   ))}
                 </div>

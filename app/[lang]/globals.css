@@ -289,3 +289,7 @@ body {
 [data-state="closed"][role="dialog"] {
   animation: zoomOut 200ms ease-out;
 }
+
+#menuLvl2 #closePanel {
+  display: none !important;
+}

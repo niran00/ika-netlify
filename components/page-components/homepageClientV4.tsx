@@ -303,7 +303,7 @@ export default function HomepageClientV4() {
        
       </div>
 
-      <OverlappingSectionsB/> 
+      {/* <OverlappingSectionsB/>  */}
      
     </>
   );
