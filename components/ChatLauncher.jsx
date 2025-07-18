@@ -149,7 +149,7 @@ export default function ChatLauncher() {
 </form>
 
 
-      <ChatModal
+      {/* <ChatModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         chatLog={chatLog}
@@ -157,7 +157,7 @@ export default function ChatLauncher() {
         setInput={setInput}
         handleSubmit={handleSubmit}
         productCards={productCards}
-      /> 
+      /> */}
     </>
   )
 }
