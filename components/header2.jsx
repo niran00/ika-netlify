@@ -21,7 +21,7 @@ import { Beaker, ArrowRight } from "lucide-react"
 import { useRouter, usePathname } from "next/navigation"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
-import TabMenu from "./menu-components/tabMenuProducts"
+import TabMenu2 from "./menu-components/tabMenuProducts2"
 
 const productSuggestions = [
   { name: "IKA RV 10 Digital", category: "Rotary Evaporators", type: "product", branch: "laboratory" },
@@ -35,7 +35,7 @@ const productSuggestions = [
   { name: "Industrial Mills", category: "Process Technology", type: "product", branch: "process" },
 ]
 
-export function Header({ hidden }) {
+export function Header2({ hidden }) {
   const [searchQuery, setSearchQuery] = useState("")
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [suggestions, setSuggestions] = useState([])
@@ -377,7 +377,7 @@ const defaultFeaturedContent = {
 
   return (
     <header 
-       className={`header1 border-b bg-white sticky top-0 z-40  top-0 left-0 w-full z-50 transition-opacity duration-300 ${
+       className={`header2 border-b bg-white sticky top-0 z-40  top-0 left-0 w-full z-50 transition-opacity duration-300 ${
         hidden ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >
@@ -580,21 +580,21 @@ const defaultFeaturedContent = {
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[100vw] sm:w-[350px] p-0">
+              <SheetContent side="right" className="w-[85vw] sm:w-[350px] p-0">
                 <SheetHeader className="p-4 border-b">
                   <SheetTitle className="text-left">Menu</SheetTitle>
                 </SheetHeader>
 
                 <div className="overflow-y-auto h-full py-4">
                   {/* Mobile Navigation */}
-                  <div className="px-2 pb-4 border-b">
+                  <div className="px-4 pb-4 border-b">
                     {/* <p className="text-sm font-medium text-gray-500 mb-2">Navigation 1</p> */}
 
-                    <TabMenu productBranchUrl={productBranch}/>
+                    
 
-                    {/* <nav className="space-y-1">
+                    <nav className="space-y-1">
                       {navigationItems.map((item) => (
-                        <div key={item.name} className={item.name+"link"}>
+                        <div key={item.name}>
                           <button
                             onClick={() => handleNavigate(item.href, item.hasDropdown, item.name)}
                             className={`block w-full text-left py-2 px-3 rounded-md ${
@@ -606,7 +606,7 @@ const defaultFeaturedContent = {
                             {item.name}
                           </button>
                           
-           
+                          {/* Show dropdown images if item is active */}
                           {item.name === "Products" && activeDropdown === "Products" && (
                             <div className="grid grid-cols-2 gap-4 p-4">
                               {productSubItems.map((sub) => (
@@ -630,48 +630,7 @@ const defaultFeaturedContent = {
                           )}
                         </div>
                       ))}
-                    </nav> */}
-
-                    <nav className="flex flex-wrap gap-2">
-  {navigationItems.map((item) => (
-    <div key={item.name} className={item.name + "link"}>
-      <button
-        onClick={() => handleNavigate(item.href, item.hasDropdown, item.name)}
-        className={`text-left py-2 px-3 rounded-md ${
-          router.pathname === item.href
-            ? "bg-blue-50 text-blue-600 font-medium"
-            : "text-gray-700 hover:bg-gray-50"
-        }`}
-      >
-        {item.name}
-      </button>
-
-      {/* Show dropdown images if item is active */}
-      {item.name === "Products" && activeDropdown === "Products" && (
-        <div className="w-full grid grid-cols-2 gap-4 p-4">
-          {productSubItems.map((sub) => (
-            <div
-              key={sub.label}
-              className="cursor-pointer hover:scale-105 transition-transform"
-              onClick={() => {
-                setMobileMenuLvl2Open(true);
-                setProductBranch(sub.label);
-              }}
-            >
-              <img
-                src={sub.image}
-                alt={sub.label}
-                className="w-full h-24 object-cover rounded-md"
-              />
-              <p className="text-center mt-2 text-sm font-medium">{sub.label}</p>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  ))}
-</nav>
-
+                    </nav>
 
                   </div>
 
@@ -718,7 +677,7 @@ const defaultFeaturedContent = {
                 <div className="overflow-y-auto h-full py-4">
                   {/* Mobile Navigation */}
 
-                    <TabMenu productBranchUrl={productBranch}/>
+                    <TabMenu2 productBranchUrl={productBranch}/>
                  
                 </div>
               </SheetContent>

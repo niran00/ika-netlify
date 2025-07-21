@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer"
 import { Metadata } from "next"
 import { getDictionary } from "@/get-dictionary"
 import { DictionaryProvider } from "@/context/dictionary-context";
+import {Header2} from "@/components/header2" 
 
 const inter = Inter({ subsets: ["latin"] })
 import React, { useEffect, useState } from "react";
@@ -68,6 +69,7 @@ export default async function RootLayout({
             <AppSidebar />
             <div className="flex-1 flex flex-col">
               <Header hidden={false} />
+              <Header2 hidden={false}/>
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
