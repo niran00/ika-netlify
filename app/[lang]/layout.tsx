@@ -5,11 +5,9 @@ import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Metadata } from "next"
-import { getDictionary } from "@/get-dictionary"
-import { DictionaryProvider } from "@/context/dictionary-context";
 import {Header2} from "@/components/header2" 
-
+import  {getDictionary} from "./get-dictionary"
+import { DictionaryProvider } from "@/app/context/dictionary-context";
 const inter = Inter({ subsets: ["latin"] })
 import React, { useEffect, useState } from "react";
 
@@ -26,15 +24,6 @@ function getBranchFromPath(pathname : string) {
   return "laboratory"
 }
 
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
-  const { lang } = await params;
-  const dict = await getDictionary(lang || "en")
-  return {
-    title: dict.metaTitle,
-    description: dict.metaDescription,
-  }
-}
-
 
 
 
@@ -45,8 +34,6 @@ export default async function RootLayout({
   children: React.ReactNode
   params : Promise<{lang : string}>
 }>) {
-  const {lang} = await params
-  const dict = await getDictionary(lang || "en");
   // const [showNavbar, setShowNavbar] = useState(true);
 
 
@@ -59,24 +46,26 @@ export default async function RootLayout({
   //   return () => window.removeEventListener("scroll", handleScroll);
   // }, []);
 
+  const {lang} = await params
+  const dict = await getDictionary(lang || "en");
   return (
     
-    <html lang="en" suppressHydrationWarning>
-      <DictionaryProvider lang={lang} dict={dict}>
+    <html lang={lang} >
       <body className={inter.className}>
         <SidebarProvider defaultOpen={false}>
-          <div className="flex min-h-screen w-full flex-col md:flex-row">
-            <AppSidebar />
-            <div className="flex-1 flex flex-col">
-              <Header hidden={false} />
-              <Header2 hidden={false}/>
-              <main className="flex-1">{children}</main>
-              <Footer />
+          <DictionaryProvider lang={lang} dict={dict}>
+            <div className="flex min-h-screen w-full flex-col md:flex-row">
+              <AppSidebar />
+              <div className="flex-1 flex flex-col">
+                <Header dict={dict} hidden={false} />
+                <Header2 hidden={false}/>
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
             </div>
-          </div>
+          </DictionaryProvider>
         </SidebarProvider>
       </body>
-      </DictionaryProvider>
     </html>
   )
 }

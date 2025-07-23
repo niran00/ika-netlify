@@ -35,7 +35,7 @@ const productSuggestions = [
   { name: "Industrial Mills", category: "Process Technology", type: "product", branch: "process" },
 ]
 
-export function Header({ hidden }) {
+export function Header({ hidden, dict }) {
   const [searchQuery, setSearchQuery] = useState("")
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [suggestions, setSuggestions] = useState([])
@@ -528,6 +528,7 @@ const defaultFeaturedContent = {
           </nav> */}
 
           <nav className="hidden md:flex items-center space-x-8">
+              
               {navigationItems.map((item) => (
                 <div key={item.name} className="relative">
                   {item.hasDropdown ? (

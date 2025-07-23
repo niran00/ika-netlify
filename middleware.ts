@@ -32,4 +32,3 @@ export const config = {
     '/((?!api|_next/static|_next/image|.*\\.(?:ico|png|jpg|jpeg|mp4|webm|webp|ogg|mp3|wav|flac|svg|aac)$).*)',
   ],
 };
-

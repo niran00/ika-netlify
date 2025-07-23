@@ -29,17 +29,17 @@ export default function Homepage4Client() {
      
       
    
-      useEffect(() => {
-       const delay = setTimeout(() => {
-         setLoading(false)
-       }, 5000)
+    //   useEffect(() => {
+    //    const delay = setTimeout(() => {
+    //      setLoading(false)
+    //    }, 5000)
    
-       return () => clearTimeout(delay)
-     }, [])
+    //    return () => clearTimeout(delay)
+    //  }, [])
    
-     if (loading) {
-       return <Preloader />
-     }
+    //  if (loading) {
+    //    return <Preloader />
+    //  }
 
   return (
     <>
@@ -75,6 +75,12 @@ export default function Homepage4Client() {
               <h2 className="text-4xl font-light text-gray-800 mb-6">Welcome to IKA</h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 IKA is where people turn visions into reality.
+              </p>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                IKA is where people turn visions into reality.
+              </p>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                IKA is where people turn visions into.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 When the corporate history of IKA began in 1910, China had not yet become a People's Republic and the

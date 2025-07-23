@@ -224,7 +224,7 @@ export default function TabMenu() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
   const [selectedSubcategory, setSelectedSubcategory] = useState<string | null>(null)
   const [isMobile, setIsMobile] = useState(false)
-  const [activeTab, setActiveTab] = useState<"lab" | "process" | "biosolution" | "ev-battery">("lab")
+  const [activeTab, setActiveTab] = useState<string>("lab")
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -248,44 +248,51 @@ export default function TabMenu() {
 
   // 🔧 Set categories based on active tab
    let currentCategories = []
-  if (activeTab === "lab" || activeTab === "biosolution") {
+  if (activeTab === "Lab" || activeTab === "Biosolution") {
   currentCategories = productCategoriesLab;
-  } else if (activeTab === "process") {
+  } else if (activeTab === "Process") {
     currentCategories = productCategoriesProcess;
-  } else if (activeTab === "ev-battery") {
+  } else if (activeTab === "EV-battery") {
     currentCategories = productCategoriesEv;
   }
 
   // ✅ Derive the dynamic URL here
-  const productBranchUrlMap = {
-    lab: "Lab",
-    process: "Process",
-    biosolution: "Biosolution",
-    "ev-battery": "EV-Battery",
-  }
+  const productBranchUrlMap = [
+     {label : "Lab" ,  image: "/start_4_divisions_lab.webp" },
+     {label :"Process" , image: "/start_4_divisions_proc.webp"},
+     {label :"Biosolution", image: "/start_4_divisions_bat.webp" },
+     {label :"EV-battery",  image: "/start_4_divisions_bio_new4.webp"}
+  ]
 
-  const productBranchUrl = productBranchUrlMap[activeTab]
+
+
+  const productBranchUrl = activeTab
 
   return (
     <>
       <div className="px-4 pb-4 border-b">
         <p className="text-sm font-medium text-gray-500">
-          IKA/Products/{productBranchUrl}
+          IKA/products/<span className="lowercase">{productBranchUrl}</span>
         </p>
       </div>
 
       <div className="bg-gray-50 flex flex-col">
         {/* Tabs */}
         <div className="flex border-b border-gray-300">
-          {(["lab", "process", "biosolution", "ev-battery"] as const).map((tab) => (
+          {productBranchUrlMap.map((tab) => (
             <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
+              key={tab.label}
+              onClick={() => setActiveTab(tab.label)}
               className={`px-4 py-2 font-medium ${
-                activeTab === tab ? "border-b-2 border-[#00599c] text-[#00599c]" : "text-gray-600"
+                activeTab === tab.label ? "border-b-2 border-[#00599c] text-[#00599c]" : "text-gray-600"
               }`}
             >
-              {productBranchUrlMap[tab]}
+              <img
+                src={tab.image}
+                alt={tab.label}
+                className="w-full h-24 object-cover rounded-md"
+              />
+              {tab.label}
             </button>
           ))}
         </div>
