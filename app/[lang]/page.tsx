@@ -1,20 +1,20 @@
+
+
+
 import React from "react";
-import HomepageClient from "@/components/page-components/homepageClient";
-import Homepage2Client from "@/components/page-components/homepage2Client";
-import Homepage3Client from "@/components/page-components/homepage3Client";
-import Homepage4Client from "@/components/page-components/homepage4Client";
-import OverlappingSections from "@/components/overlappingSections";
+import HomepageClient2 from "@/components/page-components/homepage2Client";
+import HomepageClientV5 from "@/components/page-components/homepageClientV5";
+import HomepageClientV3 from "@/components/page-components/homepageClientV3";
 
 
+// ✅ Server Component: receives params, fetches on server, no hooks.
+export default async function HomepageV2() {
 
-export default async function HomePage() {
-  // This makes loading.tsx show
+  // ✅ Render plain JSX — no useState/useEffect needed
   return (
-    <>
-      <Homepage4Client></Homepage4Client>
-      
-    </>
-  )
-    
-  ;
+      <>
+        <HomepageClientV5></HomepageClientV5>
+        {/* <HomepageClientV3></HomepageClientV3> */}
+      </ >
+  );
 }

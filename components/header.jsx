@@ -501,7 +501,7 @@ const defaultFeaturedContent = {
 
       {/* Main header */}
       <div className="px-4 py-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="px-8 flex items-center justify-between">
           <div className="flex items-center">
             <div className="flex items-center gap-2">
               <div className="text-2xl font-bold text-blue-600">
