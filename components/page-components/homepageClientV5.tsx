@@ -11,8 +11,10 @@ import { ArrowRight, ChevronRight, ChevronDown, Leaf, Recycle, Battery, Award, T
 import Preloader from "../preloader";
 import BannerSliderWrapper from "../BannerSliderWrapper";
 import StickyServices from "./stick-services";
-
+import SlickSlider from "@/components/slick-slider"
+import IndustryGrid from "@/components/industyGrid";
 import OverlappingSections from "@/components/overlappingSections";
+
 
 export default function HomepageClientV2() {
   const [scrollY, setScrollY] = useState(0);
@@ -183,8 +185,12 @@ export default function HomepageClientV2() {
           <div className="grid grid-cols-1 reletive  lg:grid-cols-1 gap-8 p-4">
             {/* Left column */}
            
-              
-          <StickyServices></StickyServices>
+          <SlickSlider/>
+          <div className="text-start">
+              <h2 className="text-4xl font-light text-gray-800">Industries</h2>
+          </div>
+          <IndustryGrid></IndustryGrid>
+          {/* <StickyServices></StickyServices> */}
       
 
           </div>
