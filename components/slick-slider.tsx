@@ -87,6 +87,26 @@ export default function SlickSlider() {
   }
 
   // Calculate transform for center mode with special handling for first and last slides
+  // const getTransform = () => {
+  //   const slideWidth = 60 // 60% width for each slide
+  //   const slideGap = 2 // 2% gap between slides (1% on each side from mx-1)
+  //   const totalSlideWidth = slideWidth + slideGap // Total width including gap
+
+  //   // Special case for first slide - start at left edge with no gray space
+  //   if (currentIndex === 0) {
+  //     return "translateX(0%)"
+  //   }
+
+  //   // Special case for last slide - position so it touches the right border
+  //   if (currentIndex === slides.length - 1) {
+  //     return `translateX(-439.8%)`
+  //   }
+
+  //   // For middle slides, center them with the normal calculation
+  //   const centerOffset = (100 - slideWidth) / 2 // 20% for 60% width slides
+  //   return `translateX(calc(-${currentIndex * totalSlideWidth}% + ${centerOffset}%))`
+  // }
+
   const getTransform = () => {
     const slideWidth = 60 // 60% width for each slide
     const slideGap = 2 // 2% gap between slides (1% on each side from mx-1)
@@ -99,13 +119,21 @@ export default function SlickSlider() {
 
     // Special case for last slide - position so it touches the right border
     if (currentIndex === slides.length - 1) {
-      return `translateX(-439.8%)`
+      // Dynamic calculation for any number of slides
+      // Last slide starts at: (slides.length - 1) * totalSlideWidth
+      // Last slide ends at: lastSlideStart + slideWidth
+      // We want this to equal 100%, so we move left by: (lastSlideEnd - 100)
+      const lastSlideStart = (slides.length - 1) * totalSlideWidth
+      const lastSlideEnd = lastSlideStart + slideWidth
+      const moveAmount = lastSlideEnd - 100
+      return `translateX(-${moveAmount}%)`
     }
 
     // For middle slides, center them with the normal calculation
     const centerOffset = (100 - slideWidth) / 2 // 20% for 60% width slides
     return `translateX(calc(-${currentIndex * totalSlideWidth}% + ${centerOffset}%))`
   }
+  
 
   return (
     <div className="w-full">

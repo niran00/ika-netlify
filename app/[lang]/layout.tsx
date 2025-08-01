@@ -10,6 +10,8 @@ import  {getDictionary} from "./get-dictionary"
 import { DictionaryProvider } from "@/app/context/dictionary-context";
 const inter = Inter({ subsets: ["latin"] })
 import React, { useEffect, useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 // export const metadata = {
 //   title: "IKA - Laboratory & Process Technology",

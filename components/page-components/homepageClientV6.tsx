@@ -14,9 +14,10 @@ import StickyServices from "./stick-services";
 import SlickSlider from "@/components/slick-slider"
 import IndustryGrid from "@/components/industyGrid";
 import OverlappingSections from "@/components/overlappingSections";
+import LaboratoryServices  from "@/components/laboratory-services";
+import SimpleSlider from "@/components/fullSectionSlider";
 
-
-export default function HomepageClientV2() {
+export default function HomepageClientV6() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -55,84 +56,16 @@ export default function HomepageClientV2() {
         className="h-[75vh] w-full bg-cover bg-center grid place-items-center"
         style={{
           backgroundImage: `url('/abstract-waves.jpg')`,
-          transform: `translateY(${Math.min(scrollY * 0.4, 80)}px)`,
+          transform: `translateY(80px)`,
           transition: "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
         <Homebanner></Homebanner>
       </div>
 
-      {/* Content Card */}
-      <div
-        className="bg-white bg-opacity-80 backdrop-blur-md shadow-xl rounded-lg -mt-16 p-8"
-        style={{
-          transform: `translateY(${-Math.min(scrollY * 0.4, 80)}px)`,
-          transition: "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
-        }}
-      >
-        
+      <section className="px-8 bg-[#F4F5F9] w-full ">
 
-        <section className="py-20 px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-16 items-center">
-            <div className="text-center w-3/4 mx-auto">
-              <h2 className="text-4xl font-light text-gray-800 mb-6">Scale your Labrartory</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                NR. 1 UP Scale Partner
-              </p>
-            </div>
-
-            <div className="relative">
-              <img
-                src="/scale_lab.jpg"
-                alt="IKA Company Building"
-                className="w-full rounded-lg border"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-       
-      </div> 
-
-       <section className="px-8 bg-white">
-
-         {/* <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 p-4">
-            <div className=" col-span-1 lg:col-span-4 grid grid-cols-1 sm:grid-cols-4 gap-6">
-              {recommendedProducts.slice(0, 4).map((product) => (
-                <Card
-                  key={product.id}
-                  className="bg-[#f5f5f7] border-none overflow-hidden hover:shadow-lg items-cetner transform transition-transform duration-300"
-                >
-                  
-                  <div className="relative">
-                    <img
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      style={{height: "62vh"}}
-                      className="w-full object-cover p-4"
-                    />
-                   
-                  </div>
-
-                  <CardContent className="text-center p-4">
-                    <h3 className="text-center text-4xl font-light text-gray-800 mb-2">{product.name}</h3>
-                    <p className="text-center text-lg text-gray-600 mb-2 leading-relaxed">{product.category}</p>
-                    <a
-                      href="#"
-                      className="flex justify-center items-center text-[#00599c] text-base mt-2 gap-1 hover:underline"
-                    >
-                      View Solutions <ChevronRight className="w-4 h-4" />
-                    </a>
-                  </CardContent>
-                
-                </Card>
-              ))}
-            </div>
-
-          </div> */}
-
-          <div className="p-4">
+          <div className="p-4 mx-auto w-3/4">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {recommendedProducts.slice(0, 4).map((product) => (
                 <Card
@@ -147,15 +80,8 @@ export default function HomepageClientV2() {
                     />
                   </div>
               
-                  <CardContent className="text-center p-4">
-                    <h3 className="text-2xl font-light text-gray-800 mb-2">{product.name}</h3>
-                    <p className="text-lg text-gray-600 mb-2 leading-relaxed">{product.category}</p>
-                    <a
-                      href="#"
-                      className="flex justify-center items-center text-[#00599c] text-base mt-2 gap-1 hover:underline"
-                    >
-                      View Solutions <ChevronRight className="w-4 h-4" />
-                    </a>
+                  <CardContent className="text-center pt-0 p-4">
+                    <h3 className="text-small font-light text-gray-800 mb-2">{product.name}</h3>
                   </CardContent>
                 </Card>
               ))}
@@ -164,6 +90,19 @@ export default function HomepageClientV2() {
 
 
       </section>
+
+      {/* <section className="bg-white p-8 border-t-1">
+
+              <SimpleSlider/>
+
+      </section> */}
+
+      <section className="w-screen overflow-hidden">
+        <SimpleSlider />
+      </section>
+
+    
+
 
 
         <section className="px-8 bg-white">
@@ -175,7 +114,7 @@ export default function HomepageClientV2() {
               <h2 className="text-4xl font-light text-gray-800">Our Services</h2>
             </div>
               
-          <BannerSliderWrapper></BannerSliderWrapper>
+          <BannerSliderWrapper/>
       
 
           </div>
@@ -188,7 +127,7 @@ export default function HomepageClientV2() {
           <SlickSlider/>
           
           {/* <StickyServices></StickyServices> */}
-      
+          <LaboratoryServices/>
 
           </div>
         </section>
