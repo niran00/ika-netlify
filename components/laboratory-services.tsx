@@ -23,28 +23,30 @@ export default function LaboratoryServices() {
   const [labServicesIndex, setLabServicesIndex] = useState(0)
 
   const laboratoryServices = [
-    { name: "Hotline", icon: Phone, image: "/placeholder.svg?height=200&width=300&text=24/7+Hotline" },
+    { name: "Mixing", icon: Phone, image: "/placeholder.svg?height=200&width=300&text=24/7+Hotline" },
     {
-      name: "Service & Warranty",
+      name: "Stirring",
       icon: Settings,
       image: "/placeholder.svg?height=200&width=300&text=Service+Warranty",
     },
     {
-      name: "Calibration and Qualification",
+      name: "Dispersing",
       icon: Award,
       image: "/placeholder.svg?height=200&width=300&text=Calibration",
     },
-    { name: "Customizing Center", icon: Wrench, image: "/placeholder.svg?height=200&width=300&text=Customizing" },
+    { name: "Solids/Liquids Mixing", icon: Wrench, image: "/placeholder.svg?height=200&width=300&text=Customizing" },
     {
-      name: "Application Support",
+      name: "Wet milling",
       icon: Users,
       image: "/placeholder.svg?height=200&width=300&text=Application+Support",
     },
-    { name: "Trial Devices", icon: TestTube, image: "/placeholder.svg?height=200&width=300&text=Trial+Devices" },
-    { name: "Training", icon: GraduationCap, image: "/placeholder.svg?height=200&width=300&text=Training" },
-    { name: "Firmware Update", icon: Download, image: "/placeholder.svg?height=200&width=300&text=Firmware" },
-    { name: "Manuals", icon: FileText, image: "/placeholder.svg?height=200&width=300&text=Manuals" },
-    { name: "Spare Parts", icon: Package, image: "/placeholder.svg?height=200&width=300&text=Spare+Parts" },
+    { name: "Dry milling", icon: TestTube, image: "/placeholder.svg?height=200&width=300&text=Trial+Devices" },
+    { name: "Homogenizing", icon: GraduationCap, image: "/placeholder.svg?height=200&width=300&text=Training" },
+    { name: "Emulsifying", icon: Download, image: "/placeholder.svg?height=200&width=300&text=Firmware" },
+    { name: "Drying", icon: FileText, image: "/placeholder.svg?height=200&width=300&text=Manuals" },
+    { name: "Crushing", icon: Package, image: "/placeholder.svg?height=200&width=300&text=Spare+Parts" },
+    { name: "Electrosynthesis", icon: Package, image: "/placeholder.svg?height=200&width=300&text=Spare+Parts" },
+    
   ]
 
   const nextLabServicesSlide = () => {
@@ -58,10 +60,10 @@ export default function LaboratoryServices() {
   }
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-black text-gray-900 mb-4 tracking-tight">Laboratory Services</h2>
+    <section className="bg-white">
+      <div className="container">
+        <div className="text-start">
+          <h2 className="text-4xl mb-8 font-light text-gray-800">Processes</h2>
         </div>
         <div className="relative">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -83,9 +85,9 @@ export default function LaboratoryServices() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                       <div className="absolute bottom-0 left-0 right-0 p-4">
-                        <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center mb-2">
+                        {/* <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center mb-2">
                           <IconComponent className="w-5 h-5 text-white" />
-                        </div>
+                        </div> */}
                         <h3 className="font-bold text-white text-sm">{service.name}</h3>
                       </div>
                     </div>

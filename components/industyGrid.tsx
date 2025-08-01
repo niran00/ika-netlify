@@ -53,7 +53,7 @@ export default function IndustryGrid() {
   return (
     <>
 
-      <section className="py-20 bg-gray-50">
+      {/* <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-gray-900 mb-12">Industries</h2>
 
@@ -81,10 +81,10 @@ export default function IndustryGrid() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <div className="w-full pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="grid px-12  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
           {industries.map((industry, index) => (
             <div key={index} className="group relative overflow-hidden rounded-xl aspect-[3/2] cursor-pointer">
               <Image

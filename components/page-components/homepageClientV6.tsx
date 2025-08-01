@@ -121,7 +121,7 @@ export default function HomepageClientV6() {
         </section>
 
         <section className="px-8 bg-white">
-          <div className="grid grid-cols-1 reletive  lg:grid-cols-1 gap-8 p-4">
+          <div className="grid grid-cols-1 reletive  lg:grid-cols-1 gap-8 pb-0 p-4">
             {/* Left column */}
            
           <SlickSlider/>
@@ -133,7 +133,7 @@ export default function HomepageClientV6() {
         </section>
         
         <section className=" bg-gray-50">
-          <div className="px-12 text-start">
+           <div className="px-12 py-6 text-start">
               <h2 className="text-4xl font-light text-gray-800">Industries</h2>
           </div>
           <IndustryGrid></IndustryGrid>
