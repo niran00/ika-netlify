@@ -61,7 +61,7 @@ export default function LaboratoryServices() {
 
   return (
     <section className="bg-white">
-      <div className="container">
+      <div className="w-full">
         <div className="text-start">
           <h2 className="text-4xl mb-8 font-light text-gray-800">Processes</h2>
         </div>
