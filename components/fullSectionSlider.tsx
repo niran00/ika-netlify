@@ -1,13 +1,25 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { 
+    ChevronLeft, 
+    ChevronRight,
+    ChevronDown, 
+    Leaf, 
+    Recycle, 
+    Battery, 
+    Award, 
+    Trophy, 
+    FlaskRoundIcon as Flask, 
+    Cog, 
+    Dna
+ } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { Card, CardContent } from "@/components/ui/card"
 
 export default function SimpleSlider() {
   const sliderRef = useRef<any>(null);
@@ -55,6 +67,7 @@ export default function SimpleSlider() {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     pauseOnHover: false,
+    adaptiveHeight: true
   };
 
   return (
@@ -243,6 +256,201 @@ export default function SimpleSlider() {
                           <Button variant="outline" className="ml-2 border-[#00599c] text-[#00599c] hover:bg-[#00599c] bg-transparent">
                             Download Brochure
                           </Button> 
+
+                        
+                          
+                        </div>
+
+                   </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div className="relative w-full mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden" >
+                 {/* Main Content */}
+                <div className="flex flex-col lg:flex-row  min-h-[500px]">
+                   {/* Left Side - Article Display */}
+                   <div className="flex-1 relative content-center p-8 text-white">
+                     {/* Device Frame */}
+                     <div className="relative rounded-2xl  mx-auto">
+                       <div className="bg-white-700 rounded-xl relative overflow-hidden">
+
+
+
+                         {/* Content */}
+                         <div className="relative z-10">
+
+                           <img
+                                   src="/sus-1.webp"
+                                   alt="IKA Company Building"
+                                   className="rounded-lg border w-full"
+                                 />
+
+
+                         </div>
+
+
+                       </div>
+                     </div>
+                   </div>
+
+                   {/* Right Side - Article Info */}
+                   <div className="flex-1 p-8 flex flex-col justify-center">
+                        <div>
+                           <span className="inline-block mb-4 px-3 border-l-4 border-solid border-[#00599c] py-1 text-lg font-medium">
+                             Sustainability at IKA
+                           </span>
+                           <p className="text-lg text-blue-600 mb-4 font-medium">Sustainable. Self-evident</p>
+                          <p className="text-md text-gray-600 mb-4 leading-relaxed">
+                            IKA is dedicated to sustainability, sharing its environmental information with Ecovadis and achieving recognition. The company's innovative solutions enable the combination of substances at all steps of material into innovative products, with a focus on increasing sustainability.
+                          </p>
+                          
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                                <div className="flex items-start space-x-3 p-4 bg-green-50 rounded-lg">
+                                  <div className="text-green-600 mt-1">
+                                    <Leaf className="w-6 h-6" />
+                                  </div>
+                                  <div>
+                                    <h4 className="font-semibold text-gray-800 mb-1">ECO Friendly R290</h4>
+                                    <p className="text-sm text-gray-600">
+                                      Natural refrigerant with significantly reduced environmental impact
+                                    </p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start space-x-3 p-4 bg-green-50 rounded-lg">
+                                  <div className="text-green-600 mt-1">
+                                    <Recycle className="w-6 h-6" />
+                                  </div>
+                                  <div>
+                                    <h4 className="font-semibold text-gray-800 mb-1">Long Product Life</h4>
+                                    <p className="text-sm text-gray-600">Designed for durability and extended service life</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start space-x-3 p-4 bg-green-50 rounded-lg">
+                                  <div className="text-green-600 mt-1">
+                                    <Battery className="w-6 h-6" />
+                                  </div>
+                                  <div>
+                                    <h4 className="font-semibold text-gray-800 mb-1">Energy Efficient</h4>
+                                    <p className="text-sm text-gray-600">Optimized energy consumption for sustainable operations</p>
+                                  </div>
+                                </div>
+                                <div className="flex items-start space-x-3 p-4 bg-green-50 rounded-lg">
+                                  <div className="text-green-600 mt-1">
+                                    <Award className="w-6 h-6" />
+                                  </div>
+                                  <div>
+                                    <h4 className="font-semibold text-gray-800 mb-1">Certified Quality</h4>
+                                    <p className="text-sm text-gray-600">ISO certified environmental management systems</p>
+                                  </div>
+                                </div>
+                            </div>
+
+                             <a className="border-b-2 border-[#00599c] font-bold text-[#00599c] pb-1">View Our Portfolio</a>
+
+                        
+                          
+                        </div>
+
+                   </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div className="relative w-full mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden" >
+                 {/* Main Content */}
+                <div className="flex flex-col lg:flex-row  min-h-[500px]">
+                   {/* Left Side - Article Display */}
+                   
+
+                   <div className="flex-1 relative content-center p-8 text-white">
+
+                    
+                     
+                     {/* Device Frame */}
+                     <div className="relative rounded-2xl  mx-auto">
+                       <div className="bg-white-700 rounded-xl relative overflow-hidden">
+                         {/* Content */}
+                         <div className="relative z-10">
+                           <img
+                                   src="/2024_banner_IKA-awards-25_833x360px.webp"
+                                   alt="IKA Company Building"
+                                   className="rounded-lg border w-full"
+                                 />
+                         </div>
+                       </div>
+                     </div>
+                     
+                     <div className="bg-blue-50 p-6 rounded-lg mt-4">
+                       <h3 className="text-xl font-semibold text-gray-800 mb-2">World market leader 2025</h3>
+                       <p className="text-gray-600 text-sm">
+                         Recognized by WirtschaftsWoche magazine as world market leader for innovative laboratory equipment.
+                       </p>
+                     </div>
+
+                   </div>
+
+                   {/* Right Side - Article Info */}
+                   <div className="flex-1 p-8 flex flex-col justify-center">
+                        <div>
+                           <span className="inline-block mb-4 px-3 border-l-4 border-solid border-[#00599c] py-1 text-lg font-medium">
+                             Award-winning time and again
+                           </span>
+                           <p className="text-lg text-blue-600 mb-4 font-medium">Laboratory equipment from IKA</p>
+                          {/* <p className="text-md text-gray-600 mb-4 leading-relaxed">
+                            Innovative strength, design quality and a sense of responsibility - this triad regularly earns us awards and recognition. We take this as an incentive to continue innovating with entrepreneurial courage, dynamic processes and a strong commitment to learn and communicate.
+                          </p> */}
+                          
+
+                            <div className="space-y-4 mb-8">
+                                <Card className="border-l-4 border-l-red-500 shadow-sm">
+                                  <CardContent className="p-4">
+                                    <div className="flex items-start space-x-3">
+                                      <Trophy className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />
+                                      <div>
+                                        <div className="flex items-center space-x-2 mb-1">
+                                          <span className="font-semibold text-gray-800">Red Dot Design Award</span>
+                                          <span className="text-sm text-gray-500">2024</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">For innovative mini disperser design</p>
+                                      </div>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                                <Card className="border-l-4 border-l-red-500 shadow-sm">
+                                  <CardContent className="p-4">
+                                    <div className="flex items-start space-x-3">
+                                      <Trophy className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />
+                                      <div>
+                                        <div className="flex items-center space-x-2 mb-1">
+                                          <span className="font-semibold text-gray-800">iF Design Award</span>
+                                          <span className="text-sm text-gray-500">2023</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Outstanding product design recognition</p>
+                                      </div>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                                <Card className="border-l-4 border-l-red-500 shadow-sm">
+                                  <CardContent className="p-4">
+                                    <div className="flex items-start space-x-3">
+                                      <Trophy className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" />
+                                      <div>
+                                        <div className="flex items-center space-x-2 mb-1">
+                                          <span className="font-semibold text-gray-800">German Design Award</span>
+                                          <span className="text-sm text-gray-500">2022</span>
+                                        </div>
+                                        <p className="text-sm text-gray-600">Excellence in industrial design</p>
+                                      </div>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              </div>
+
+                             <a className="border-b-2 border-[#00599c] font-bold text-[#00599c] pb-1">View All Awards</a>
 
                         
                           
