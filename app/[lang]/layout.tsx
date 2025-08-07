@@ -12,6 +12,8 @@ const inter = Inter({ subsets: ["latin"] })
 import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { AuthProvider } from "@/app/context/auth-context"
+
 
 // export const metadata = {
 //   title: "IKA - Laboratory & Process Technology",
@@ -54,6 +56,7 @@ export default async function RootLayout({
     
     <html lang={lang} >
       <body className={inter.className}>
+        <AuthProvider>
         <SidebarProvider defaultOpen={false}>
           <DictionaryProvider lang={lang} dict={dict}>
             <div className="flex min-h-screen w-full flex-col md:flex-row">
@@ -67,6 +70,7 @@ export default async function RootLayout({
             </div>
           </DictionaryProvider>
         </SidebarProvider>
+        </AuthProvider>
       </body>
     </html>
   )

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "email": "niran.millet@gmail.com",
+    "password": "$2b$10$YTHfp6s4BOP.1dBHLCDwzug3dM5lLMT3Zu0FISUObC1p6s5Yr/m5i",
+    "title": "Mr.",
+    "firstName": "Niran",
+    "lastName": "Millet",
+    "phone": "0979535874",
+    "company": "Narinaa",
+    "department": "",
+    "address1": "35/134 Supalai Vista",
+    "address2": "",
+    "zipCode": "11000",
+    "city": "Nonthaburi",
+    "country": "",
+    "state": "Talat Kwan",
+    "privacyConsent": true,
+    "marketingConsent": true,
+    "createdAt": "2025-08-07T08:36:22.622Z"
+  }
+]

@@ -22,6 +22,7 @@ import { useRouter, usePathname } from "next/navigation"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 
 import TabMenu from "./menu-components/tabMenuProducts"
+import { UserMenu } from "@/components/user-menu"
 
 const productSuggestions = [
   { name: "IKA RV 10 Digital", category: "Rotary Evaporators", type: "product", branch: "laboratory" },
@@ -563,7 +564,7 @@ const defaultFeaturedContent = {
                <span className="hidden sm:inline">EN</span>
              </Button>
              <Button variant="ghost" size="sm" className="text-xs px-2">
-               <User className="h-4 w-4" />
+                <UserMenu />
              </Button>
              <Button variant="ghost" size="sm" className="text-xs px-2">
                <ShoppingCart className="h-4 w-4" />

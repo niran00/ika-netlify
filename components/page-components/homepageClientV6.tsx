@@ -56,8 +56,6 @@ export default function HomepageClientV6() {
         className="h-[75vh] w-full bg-cover bg-center grid place-items-center"
         style={{
           backgroundImage: `url('/abstract-waves.jpg')`,
-          transform: `translateY(80px)`,
-          transition: "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
         }}
       >
         <Homebanner></Homebanner>
@@ -66,7 +64,13 @@ export default function HomepageClientV6() {
       <section className="px-8 bg-[#F4F5F9] w-full ">
 
           <div className="p-4 mx-auto w-3/4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div 
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+              style={{
+                transform: `translateY(-80px)`,
+                transition: "transform 0.25s cubic-bezier(0.22, 1, 0.36, 1)",
+              }}
+            >
               {recommendedProducts.slice(0, 4).map((product) => (
                 <Card
                   key={product.id}

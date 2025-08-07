@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1",
+    "email": "test@ika.com",
+    "password": "$2b$10$rQZ9QmjytWpN7FZhVXq./.K8YnO8qF5B5rQZ9QmjytWpN7FZhVXq.O",
+    "title": "Dr.",
+    "firstName": "John",
+    "lastName": "Smith",
+    "phone": "+1-555-0123",
+    "company": "Research Labs Inc",
+    "department": "R&D",
+    "address1": "123 Science Street",
+    "address2": "Suite 100",
+    "zipCode": "12345",
+    "city": "Boston",
+    "country": "United States",
+    "state": "Massachusetts",
+    "privacyConsent": true,
+    "marketingConsent": true,
+    "createdAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "2",
+    "email": "niran.millet@ika.com",
+    "password": "$2b$10$bQPvQxN6Trj7wyemmeoCHePle32U8GeqQuo/bIloWoLrGlw1.rGQq",
+    "title": "Mr.",
+    "firstName": "Niran",
+    "lastName": "Millet",
+    "phone": "0979535874",
+    "company": "Narinaa",
+    "department": "",
+    "address1": "35/134 Supalai Vista",
+    "address2": "",
+    "zipCode": "11000",
+    "city": "Nonthaburi",
+    "country": "France",
+    "state": "Talat Kwan",
+    "privacyConsent": true,
+    "marketingConsent": true,
+    "createdAt": "2025-08-07T04:46:38.254Z",
+    "updatedAt": "2025-08-07T07:13:09.712Z"
+  }
+]
