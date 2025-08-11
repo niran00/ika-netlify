@@ -20,6 +20,7 @@ import { Input } from "@/components/ui/input"
 import { Beaker, ArrowRight } from "lucide-react"
 import { useRouter, usePathname } from "next/navigation"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
+import { CartSidebar } from '@/components/cart-sidebar'
 
 import TabMenu from "./menu-components/tabMenuProducts"
 import { UserMenu } from "@/components/user-menu"
@@ -567,7 +568,7 @@ const defaultFeaturedContent = {
                 <UserMenu />
              </Button>
              <Button variant="ghost" size="sm" className="text-xs px-2">
-               <ShoppingCart className="h-4 w-4" />
+                 <CartSidebar />
              </Button>
             </div>
 

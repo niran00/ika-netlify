@@ -6,22 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
-import {
-  ChevronRight,
-  ChevronDown,
-  Search,
-  Grid,
-  List,
-  FileText,
-  Package,
-  Wrench,
-  Download,
-  Eye,
-  ShoppingCart,
-  Menu,
-  CheckCircle,
-} from "lucide-react"
+import { ChevronRight, ChevronDown, Search, Grid, List, FileText, Package, Wrench, Download, Eye, ShoppingCart, Menu, CheckCircle } from 'lucide-react'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { CartButton } from '@/components/cart-button'
 
 const productCategories = [
   {
@@ -168,7 +155,7 @@ export default function ProductsPage() {
     const sidebarContent = (
       <div className="w-full md:w-80 bg-white border-r border-gray-200 h-full overflow-y-auto">
         <div className="p-6 border-b border-gray-200">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Products 111</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">Products</h1>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             <Input
@@ -317,7 +304,7 @@ export default function ProductsPage() {
                 {[1, 2, 3, 4].map((i) => (
                   <img
                     key={i}
-                    src={selectedProduct.image}
+                    src={`/placeholder.svg?height=100&width=100&text=View+${i}`}
                     alt={`Product view ${i}`}
                     className="w-full h-20 object-contain bg-gray-50 rounded cursor-pointer hover:bg-gray-100"
                   />
@@ -389,10 +376,13 @@ export default function ProductsPage() {
 
               {/* Action Buttons */}
               <div className="space-y-3 pt-4 border-t">
-                <Button className="w-full bg-[#00599c] hover:bg-[#004080] text-white py-3">
-                  <ShoppingCart className="h-5 w-5 mr-2" />
+                <CartButton 
+                  product={selectedProduct} 
+                  className="w-full py-3 bg-[#00599c] hover:bg-[#004080] text-white"
+                  showIcon={true}
+                >
                   Add to Cart
-                </Button>
+                </CartButton>
                 <Button
                   variant="outline"
                   className="w-full border-[#00599c] text-[#00599c] hover:bg-[#00599c] hover:text-white py-3"
@@ -449,7 +439,9 @@ export default function ProductsPage() {
               </li>
             </ul>
           </div>
-          
+          <div className="mt-8">
+            <Button className="bg-[#00599c] hover:bg-[#004080] text-white">Learn More</Button>
+          </div>
         </div>
         <div>
           <img
@@ -471,7 +463,14 @@ export default function ProductsPage() {
           <h2 className="text-2xl font-bold text-gray-900">Products</h2>
           <p className="text-gray-600">Showing {sampleProducts.length} products</p>
         </div>
-        
+        <div className="flex gap-2">
+          <Button variant={viewMode === "grid" ? "default" : "outline"} size="sm" onClick={() => setViewMode("grid")}>
+            <Grid className="h-4 w-4" />
+          </Button>
+          <Button variant={viewMode === "list" ? "default" : "outline"} size="sm" onClick={() => setViewMode("list")}>
+            <List className="h-4 w-4" />
+          </Button>
+        </div>
       </div>
 
       <div className={viewMode === "grid" ? "grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" : "space-y-4"}>
@@ -495,13 +494,22 @@ export default function ProductsPage() {
                     <div className="text-[#00599c] font-semibold">{product.price}</div>
                     <div className="text-xs text-gray-500">Ident. No. {product.itemNumber}</div>
                   </div>
-                  <Button
-                    size="sm"
-                    className="text-white p-2 w-full mt-3 bg-[#00599c] hover:bg-[#004080]"
-                    onClick={() => openProductModal(product)}
-                  >
-                    View Product
-                  </Button>
+                  <div className="flex gap-2 mt-3">
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="flex-1 w-full gap-0"
+                      onClick={() => openProductModal(product)}
+                    >
+                      <Eye className="h-4 w-4 mr-2" />
+                      View
+                    </Button>
+                    <CartButton 
+                      product={product} 
+                      size="sm" 
+                      className="flex-1 gap-0 w-full bg-[#00599c] hover:bg-[#004080]"
+                    />
+                  </div>
                 </CardContent>
               </>
             ) : (
@@ -519,14 +527,21 @@ export default function ProductsPage() {
                         <div className="text-[#00599c] font-semibold">{product.price}</div>
                         <div className="text-xs text-gray-500">Ident. No. {product.itemNumber}</div>
                       </div>
-                      <Button
-                        size="sm"
-                        className="bg-[#00599c] hover:bg-[#004080]"
-                        onClick={() => openProductModal(product)}
-                      >
-                        <Eye className="h-4 w-4 mr-2" />
-                        View Product
-                      </Button>
+                      <div className="flex gap-2">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => openProductModal(product)}
+                        >
+                          <Eye className="h-4 w-4 mr-2" />
+                          View
+                        </Button>
+                        <CartButton 
+                          product={product} 
+                          size="sm" 
+                          className="bg-[#00599c] hover:bg-[#004080]"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -575,7 +590,7 @@ export default function ProductsPage() {
                     <div className="text-[#00599c] font-semibold">On Request</div>
                     <div className="text-xs text-gray-500">Ident. No. {item.id}</div>
                   </div>
-                  <Button size="sm" className="p-2 text-white w-full mt-3 bg-[#00599c] hover:bg-[#004080]">
+                  <Button size="sm" className="w-full mt-3 bg-[#00599c] hover:bg-[#004080]">
                     Request Quote
                   </Button>
                 </CardContent>
@@ -584,7 +599,43 @@ export default function ProductsPage() {
           </div>
         </div>
 
-        
+        <div>
+          <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+            <ChevronRight className="h-5 w-5 text-[#00599c]" />
+            VESSEL PACKAGES
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { name: "HABITAT cyt sw 0.5 single-wall, for 0.5 l", id: "0035004644" },
+              { name: "HABITAT cyt sw 1 single-wall, for 1 l", id: "0035004645" },
+              { name: "HABITAT cyt sw 2 single-wall, for 2 l", id: "0035004646" },
+              { name: "HABITAT cyt sw 5 single-wall, for 5 l", id: "0035004647" },
+            ].map((item, index) => (
+              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="relative">
+                  <img
+                    src="/placeholder.svg?height=200&width=200&text=Vessel+Package"
+                    alt={item.name}
+                    className="w-full h-48 object-contain p-4 bg-gray-50"
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <h4 className="font-semibold text-sm mb-2 line-clamp-2">{item.name}</h4>
+                  <div className="space-y-2">
+                    <div className="text-sm text-gray-600">
+                      <span className="font-medium">PRICE</span>
+                    </div>
+                    <div className="text-[#00599c] font-semibold">On Request</div>
+                    <div className="text-xs text-gray-500">Ident. No. {item.id}</div>
+                  </div>
+                  <Button size="sm" className="w-full mt-3 bg-[#00599c] hover:bg-[#004080]">
+                    Request Quote
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )
