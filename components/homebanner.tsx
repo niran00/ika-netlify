@@ -46,7 +46,7 @@ export default function Homepage2Client(data : any){
     return (
         <>
 
-            <section className="relative w-full h-[75vh] bg-gradient-to-br from-slate-200 via-blue-600 to-slate-600 flex items-center">
+            <section className="relative w-full h-[75vh]flex items-center">
               {/* Overlayed Video Background */}
               <div className="absolute inset-0">
                 {/* Responsive Video Sources */}
@@ -60,7 +60,7 @@ export default function Homepage2Client(data : any){
                     <div
                       className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
                       style={{
-                        backgroundImage: `url('/abstract-waves.jpg')`,
+                        backgroundImage: `url('/20250811_IKA_Process Banner A.png')`,
                       }}
                     />
 

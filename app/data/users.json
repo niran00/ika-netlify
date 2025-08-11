@@ -1,22 +1,22 @@
 [
   {
     "id": "1",
-    "email": "niran.millet@gmail.com",
-    "password": "$2b$10$YTHfp6s4BOP.1dBHLCDwzug3dM5lLMT3Zu0FISUObC1p6s5Yr/m5i",
+    "email": "niran.millet@ika.com",
+    "password": "$2b$10$jUHs04GewuT5Pg7N4Gk3SOpF13P.L5VAIt2CbcWfVC1Azewl1NXu2",
     "title": "Mr.",
     "firstName": "Niran",
     "lastName": "Millet",
     "phone": "0979535874",
-    "company": "Narinaa",
-    "department": "",
-    "address1": "35/134 Supalai Vista",
-    "address2": "",
-    "zipCode": "11000",
-    "city": "Nonthaburi",
-    "country": "",
-    "state": "Talat Kwan",
+    "company": "IKA",
+    "department": "IT",
+    "address1": "niran.millet@ika.com",
+    "address2": "niran.millet@ika.com",
+    "zipCode": "10250",
+    "city": "BKK",
+    "country": "Thailand",
+    "state": "BKK",
     "privacyConsent": true,
     "marketingConsent": true,
-    "createdAt": "2025-08-07T08:36:22.622Z"
+    "createdAt": "2025-08-08T07:03:04.787Z"
   }
 ]

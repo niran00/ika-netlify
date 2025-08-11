@@ -17,5 +17,24 @@
     "privacyConsent": true,
     "marketingConsent": true,
     "registeredAt": "2025-08-07T08:36:22.622Z"
+  },
+  {
+    "id": "2",
+    "email": "niran.millet@ika.com",
+    "title": "Mr.",
+    "firstName": "Niran",
+    "lastName": "Millet",
+    "phone": "0979535874",
+    "company": "IKA",
+    "department": "IT",
+    "address1": "niran.millet@ika.com",
+    "address2": "niran.millet@ika.com",
+    "zipCode": "10250",
+    "city": "BKK",
+    "country": "Thailand",
+    "state": "BKK",
+    "privacyConsent": true,
+    "marketingConsent": true,
+    "registeredAt": "2025-08-08T07:03:04.787Z"
   }
 ]
