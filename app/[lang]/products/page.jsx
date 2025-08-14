@@ -64,6 +64,27 @@ const sampleProducts = [
     price: "On Request",
     itemNumber: "0035004128",
     category: "Bioreactors",
+    technicalData: {
+      "Nominal voltage (input)": "48 VDC",
+      "Current max. (input)": "1500 mA",
+      "Voltage output (electrode)": "30/10 V",
+      "Current output (electrode)": "100 mA",
+      "Motor rating output": "9 W",
+      "Speed range": "50 - 1500 rpm",
+      "Setting accuracy speed": "10 rpm",
+      "Stirring quantity max.": "0.5 l",
+      "Stirring bar length": "8 - 16 mm",
+      "Speed adjustment": "Turning knob",
+      Display: "TFT",
+      "Dimensions (W x H x D)": "130 x 150 x 250 mm",
+      Weight: "3.72 kg",
+      "Permissible ambient temperature": "5 - 50 °C",
+      "Protection class": "IP 40",
+      "Working Volume": "0.5 L",
+      Material: "Borosilicate Glass",
+      "Temperature Range": "5-80°C",
+      "Pressure Rating": "1.5 bar",
+    },
   },
   {
     id: 2,
@@ -72,6 +93,27 @@ const sampleProducts = [
     price: "On Request",
     itemNumber: "0035004129",
     category: "Bioreactors",
+    technicalData: {
+      "Nominal voltage (input)": "48 VDC",
+      "Current max. (input)": "1800 mA",
+      "Voltage output (electrode)": "30/10 V",
+      "Current output (electrode)": "120 mA",
+      "Motor rating output": "12 W",
+      "Speed range": "50 - 1800 rpm",
+      "Setting accuracy speed": "10 rpm",
+      "Stirring quantity max.": "1.0 l",
+      "Stirring bar length": "10 - 20 mm",
+      "Speed adjustment": "Digital control",
+      Display: "TFT",
+      "Dimensions (W x H x D)": "140 x 160 x 270 mm",
+      Weight: "4.12 kg",
+      "Permissible ambient temperature": "5 - 50 °C",
+      "Protection class": "IP 40",
+      "Working Volume": "1.0 L",
+      Material: "Borosilicate Glass",
+      "Temperature Range": "5-85°C",
+      "Pressure Rating": "2.0 bar",
+    },
   },
   {
     id: 3,
@@ -80,6 +122,27 @@ const sampleProducts = [
     price: "On Request",
     itemNumber: "0035004130",
     category: "Bioreactors",
+    technicalData: {
+      "Nominal voltage (input)": "48 VDC",
+      "Current max. (input)": "2000 mA",
+      "Voltage output (electrode)": "30/10 V",
+      "Current output (electrode)": "150 mA",
+      "Motor rating output": "15 W",
+      "Speed range": "50 - 2000 rpm",
+      "Setting accuracy speed": "5 rpm",
+      "Stirring quantity max.": "2.0 l",
+      "Stirring bar length": "12 - 25 mm",
+      "Speed adjustment": "Digital control",
+      Display: "Color TFT",
+      "Dimensions (W x H x D)": "150 x 170 x 290 mm",
+      Weight: "4.85 kg",
+      "Permissible ambient temperature": "5 - 50 °C",
+      "Protection class": "IP 42",
+      "Working Volume": "2.0 L",
+      Material: "Borosilicate Glass",
+      "Temperature Range": "5-90°C",
+      "Pressure Rating": "2.5 bar",
+    },
   },
   {
     id: 4,
@@ -88,6 +151,27 @@ const sampleProducts = [
     price: "On Request",
     itemNumber: "0035004131",
     category: "Bioreactors",
+    technicalData: {
+      "Nominal voltage (input)": "48 VDC",
+      "Current max. (input)": "2500 mA",
+      "Voltage output (electrode)": "30/10 V",
+      "Current output (electrode)": "200 mA",
+      "Motor rating output": "20 W",
+      "Speed range": "50 - 2500 rpm",
+      "Setting accuracy speed": "5 rpm",
+      "Stirring quantity max.": "5.0 l",
+      "Stirring bar length": "15 - 30 mm",
+      "Speed adjustment": "Digital control",
+      Display: "Color TFT",
+      "Dimensions (W x H x D)": "170 x 190 x 320 mm",
+      Weight: "6.20 kg",
+      "Permissible ambient temperature": "5 - 50 °C",
+      "Protection class": "IP 42",
+      "Working Volume": "5.0 L",
+      Material: "Borosilicate Glass",
+      "Temperature Range": "5-95°C",
+      "Pressure Rating": "3.0 bar",
+    },
   },
 ]
 
@@ -117,6 +201,10 @@ export default function ProductsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [productModalOpen, setProductModalOpen] = useState(false)
+
+  const [selectedForComparison, setSelectedForComparison] = useState([])
+  const [comparisonModalOpen, setComparisonModalOpen] = useState(false)
+  
 
   // Check if we're on mobile
   useEffect(() => {
@@ -150,6 +238,160 @@ export default function ProductsPage() {
     setSelectedProduct(product)
     setProductModalOpen(true)
   }
+
+  // Start toggle product selection for comparison
+  const toggleProductComparison = (product) => {
+    setSelectedForComparison((prev) => {
+      const isSelected = prev.find((p) => p.id === product.id)
+      if (isSelected) {
+        return prev.filter((p) => p.id !== product.id)
+      } else if (prev.length < 3) {
+        return [...prev, product]
+      }
+      return prev
+    })
+  }
+
+  const clearComparison = () => {
+    setSelectedForComparison([])
+  }
+
+  const openComparisonModal = () => {
+    if (selectedForComparison.length >= 2) {
+      setComparisonModalOpen(true)
+    }
+  }
+
+
+  const renderComparisonModal = () => {
+      if (selectedForComparison.length === 0) return null
+  
+      // Get all unique technical data keys
+      const allKeys = new Set()
+      selectedForComparison.forEach((product) => {
+        Object.keys(product.technicalData || {}).forEach((key) => allKeys.add(key))
+      })
+      const sortedKeys = Array.from(allKeys).sort()
+  
+      return (
+        <Dialog open={comparisonModalOpen} onOpenChange={setComparisonModalOpen}>
+          <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold text-[#00599c]">
+                Product Comparison ({selectedForComparison.length} products)
+              </DialogTitle>
+            </DialogHeader>
+  
+            <div className="space-y-6">
+              {/* Product Headers */}
+              <div
+                className="grid gap-4"
+                style={{ gridTemplateColumns: `200px repeat(${selectedForComparison.length}, 1fr)` }}
+              >
+                <div className="font-semibold text-gray-600">Product</div>
+                {selectedForComparison.map((product) => (
+                  <div key={product.id} className="space-y-2">
+                    <img
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      className="w-full h-32 object-contain bg-gray-50 rounded"
+                    />
+                    <h3 className="font-semibold text-sm">{product.name}</h3>
+                    <p className="text-xs text-gray-500">ID: {product.itemNumber}</p>
+                    <p className="text-[#00599c] font-semibold">{product.price}</p>
+                  </div>
+                ))}
+              </div>
+  
+              {/* Technical Specifications Comparison */}
+              <div className="border rounded-lg overflow-hidden">
+                <div className="bg-gray-50 p-3 border-b">
+                  <h3 className="font-semibold text-lg">Technical Specifications</h3>
+                </div>
+  
+                <div className="divide-y">
+                  {sortedKeys.map((key, index) => (
+                    <div
+                      key={key}
+                      className={`grid gap-4 p-3 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+                      style={{ gridTemplateColumns: `200px repeat(${selectedForComparison.length}, 1fr)` }}
+                    >
+                      <div className="font-medium text-gray-700">{key}</div>
+                      {selectedForComparison.map((product) => (
+                        <div key={product.id} className="text-sm">
+                          {product.technicalData?.[key] || "N/A"}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+  
+              {/* Action Buttons */}
+              <div className="flex justify-between items-center pt-4 border-t">
+                <Button variant="outline" onClick={clearComparison}>
+                  Clear Selection
+                </Button>
+                <div className="flex gap-2">
+                  {selectedForComparison.map((product) => (
+                    <CartButton key={product.id} product={product} size="sm" className="bg-[#00599c] hover:bg-[#004080]">
+                      Add {product.name.split(" ")[2]} to Cart
+                    </CartButton>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
+      )
+    }
+  
+    const renderComparisonBar = () => {
+      if (selectedForComparison.length === 0) return null
+  
+      return (
+        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+          <Card className="p-4 shadow-lg border-2 border-[#00599c]">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Package className="h-5 w-5 text-[#00599c]" />
+                <span className="font-semibold">Compare Products ({selectedForComparison.length}/3)</span>
+              </div>
+  
+              <div className="flex gap-2">
+                {selectedForComparison.map((product) => (
+                  <div key={product.id} className="flex items-center gap-1 bg-blue-50 px-2 py-1 rounded text-sm">
+                    <span className="truncate max-w-20">{product.name}</span>
+                    <button
+                      onClick={() => toggleProductComparison(product)}
+                      className="text-red-500 hover:text-red-700 ml-1"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+  
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  onClick={openComparisonModal}
+                  disabled={selectedForComparison.length < 2}
+                  className="bg-[#00599c] hover:bg-[#004080]"
+                >
+                  Compare
+                </Button>
+                <Button size="sm" variant="outline" onClick={clearComparison}>
+                  Clear
+                </Button>
+              </div>
+            </div>
+          </Card>
+        </div>
+      )
+    }
+
+  // End toggle product selection for comparison
 
   const renderSidebar = () => {
     const sidebarContent = (
@@ -484,7 +726,33 @@ export default function ProductsPage() {
                     alt={product.name}
                     className="w-full h-48 object-contain p-4 bg-gray-50"
                   />
+
+                  <div className="absolute top-2 right-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedForComparison.find((p) => p.id === product.id) !== undefined}
+                      onChange={() => toggleProductComparison(product)}
+                      disabled={
+                        selectedForComparison.length >= 3 && !selectedForComparison.find((p) => p.id === product.id)
+                      }
+                      className="w-4 h-4 text-[#00599c] bg-white border-2 border-gray-300 rounded focus:ring-[#00599c] focus:ring-2"
+                    />
+                  </div>
+                  
                 </div>
+
+                  <div className="absolute top-2 right-2">
+                    <input
+                      type="checkbox"
+                      checked={selectedForComparison.find((p) => p.id === product.id) !== undefined}
+                      onChange={() => toggleProductComparison(product)}
+                      disabled={
+                        selectedForComparison.length >= 3 && !selectedForComparison.find((p) => p.id === product.id)
+                      }
+                      className="w-4 h-4 text-[#00599c] bg-white border-2 border-gray-300 rounded focus:ring-[#00599c] focus:ring-2"
+                    />
+                  </div>
+
                 <CardContent className="p-4">
                   <h3 className="font-semibold text-sm mb-2 line-clamp-2">{product.name}</h3>
                   <div className="space-y-2">
@@ -514,12 +782,27 @@ export default function ProductsPage() {
               </>
             ) : (
               <CardContent className="p-4">
+                <div className="relative">
                 <div className="flex gap-4">
                   <img
                     src={product.image || "/placeholder.svg"}
                     alt={product.name}
                     className="w-24 h-24 object-contain bg-gray-50 rounded"
                   />
+
+                      <div className="absolute -top-1 -right-1">
+                      <input
+                        type="checkbox"
+                        checked={selectedForComparison.find((p) => p.id === product.id) !== undefined}
+                        onChange={() => toggleProductComparison(product)}
+                        disabled={
+                          selectedForComparison.length >= 3 && !selectedForComparison.find((p) => p.id === product.id)
+                        }
+                        className="w-4 h-4 text-[#00599c] bg-white border-2 border-gray-300 rounded focus:ring-[#00599c] focus:ring-2"
+                      />
+                    </div>
+                  </div>
+
                   <div className="flex-1">
                     <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
                     <div className="flex justify-between items-center">
@@ -765,7 +1048,9 @@ export default function ProductsPage() {
         {renderBreadcrumb()}
         {renderMainContent()}
         {renderProductModal()}
+        {renderComparisonModal()}
       </div>
+        {renderComparisonBar()}
     </div>
   )
 }
