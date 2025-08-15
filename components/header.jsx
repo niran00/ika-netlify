@@ -20,10 +20,10 @@ import { Input } from "@/components/ui/input"
 import { Beaker, ArrowRight } from "lucide-react"
 import { useRouter, usePathname } from "next/navigation"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { CartSidebar } from '@/components/cart-sidebar'
+import { CartSidebar } from '@/components/cart-components/cart-sidebar'
 
 import TabMenu from "./menu-components/tabMenuProducts"
-import { UserMenu } from "@/components/user-menu"
+import { UserMenu } from "@/components/authentication-components/user-menu"
 
 const productSuggestions = [
   { name: "IKA RV 10 Digital", category: "Rotary Evaporators", type: "product", branch: "laboratory" },

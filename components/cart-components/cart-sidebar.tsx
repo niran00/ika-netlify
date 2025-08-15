@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator'
 import { ShoppingCart, Plus, Minus, Trash2, FileText, X } from 'lucide-react'
 import { useCart } from '@/app/context/cart-context'
 import { useAuth } from '@/app/context/auth-context'
-import { QuoteRequestDialog } from './quote-request-dialog'
+import { QuoteRequestDialog } from '../quote-request-dialog'
 
 export function CartSidebar({ children }) {
   const { cartItems, removeFromCart, updateQuantity, getCartTotal, getCartItemsCount, clearCart } = useCart()
@@ -158,6 +158,15 @@ export function CartSidebar({ children }) {
 
                   {/* Action Buttons */}
                   <div className="space-y-2">
+                     <Button 
+                      onClick={handleRequestQuote}
+                      className="w-full bg-[#00599c] hover:bg-[#004080] text-white"
+                    >
+                      <FileText className="h-4 w-4 mr-2" />
+                      Checkout
+                    </Button>
+
+
                     <Button 
                       onClick={handleRequestQuote}
                       className="w-full bg-[#00599c] hover:bg-[#004080] text-white"

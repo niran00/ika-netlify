@@ -17,7 +17,7 @@ import { logoutUser } from "@/app/[lang]/actions/auth"
 export function UserMenu() {
   const { user, isLoggedIn, logout } = useAuth()
   const router = useRouter()
-
+ 
   const handleLogout = async () => {
     try {
       await logoutUser()
@@ -29,6 +29,7 @@ export function UserMenu() {
   }
 
   if (!isLoggedIn) {
+    
     return (
       <Button
         variant="ghost"

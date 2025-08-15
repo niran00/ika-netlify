@@ -6,7 +6,20 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
-import { ChevronRight, ChevronDown, Search, Grid, List, FileText, Package, Wrench, Download, Eye, ShoppingCart, Menu, CheckCircle } from 'lucide-react'
+import {
+  ChevronRight,
+  ChevronDown,
+  Search,
+  Grid,
+  List,
+  FileText,
+  Package,
+  Wrench,
+  Download,
+  Eye,
+  Menu,
+  CheckCircle,
+} from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { CartButton } from '@/components/cart-components/cart-button'
 
@@ -19,7 +32,17 @@ const productCategories = [
         id: "bioreactors",
         name: "Bioreactors",
         sections: ["Overview", "Products", "Accessories", "Downloads"],
-      }
+      },
+      {
+        id: "fermentation-systems",
+        name: "Fermentation Systems",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "cell-culture",
+        name: "Cell Culture",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
     ],
   },
   {
@@ -51,7 +74,148 @@ const productCategories = [
         id: "overhead-stirrers",
         name: "Overhead Stirrers",
         sections: ["Overview", "Products", "Accessories", "Downloads"],
-      }
+      },
+      {
+        id: "shakers",
+        name: "Shakers",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "thermoshakers",
+        name: "Thermoshakers",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+    ],
+  },
+  {
+    id: "measuring-viscosity",
+    name: "Measuring Viscosity",
+    subcategories: [
+      {
+        id: "measuring-stirrers",
+        name: "Measuring Stirrers",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "viscometers",
+        name: "Viscometers",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "rheometers",
+        name: "Rheometers",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+    ],
+  },
+  {
+    id: "separation",
+    name: "Separation",
+    subcategories: [
+      {
+        id: "rotary-evaporators",
+        name: "Rotary Evaporators",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "centrifuges",
+        name: "Centrifuges",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "filtration-systems",
+        name: "Filtration Systems",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+    ],
+  },
+  {
+    id: "reactor-systems",
+    name: "Reactor Systems",
+    subcategories: [
+      {
+        id: "synthesis-reactors",
+        name: "Synthesis Reactors",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "high-viscosity-reactors",
+        name: "High Viscosity Reactors",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "pilot-plants",
+        name: "Pilot Plants",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+    ],
+  },
+  {
+    id: "vacuum-technology",
+    name: "Vacuum Technology",
+    subcategories: [
+      {
+        id: "vacuum-pumps",
+        name: "Vacuum Pumps",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "vacuum-controllers",
+        name: "Vacuum Controllers",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "vacuum-systems",
+        name: "Vacuum Systems",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+    ],
+  },
+  {
+    id: "crushing",
+    name: "Crushing",
+    subcategories: [
+      {
+        id: "dispersers",
+        name: "Dispersers",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "mills",
+        name: "Mills",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "single-use-crushing",
+        name: "Single-Use Crushing",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+    ],
+  },
+  {
+    id: "heating-cooling",
+    name: "Heating / Cooling",
+    subcategories: [
+      {
+        id: "dry-block-heater",
+        name: "Dry Block Heater",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "heating-baths",
+        name: "Heating Baths",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "hot-plates",
+        name: "Hot Plates",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
+      {
+        id: "temperature-control",
+        name: "Temperature Control",
+        sections: ["Overview", "Products", "Accessories", "Downloads"],
+      },
     ],
   },
 ]
@@ -59,9 +223,9 @@ const productCategories = [
 const sampleProducts = [
   {
     id: 1,
-    name: "Product 1 ",
-    image: "product1.webp",
-    price: "5000",
+    name: "HABITAT eco 0.5 single-wall, for 0.5 l",
+    image: "/placeholder.svg?height=200&width=200&text=HABITAT+eco+0.5",
+    price: "On Request",
     itemNumber: "0035004128",
     category: "Bioreactors",
     technicalData: {
@@ -88,9 +252,9 @@ const sampleProducts = [
   },
   {
     id: 2,
-    name: "Product 2",
-    image: "product2.webp",
-    price: "6000",
+    name: "HABITAT eco 1 single-wall, for 1 l",
+    image: "/placeholder.svg?height=200&width=200&text=HABITAT+eco+1",
+    price: "On Request",
     itemNumber: "0035004129",
     category: "Bioreactors",
     technicalData: {
@@ -117,8 +281,8 @@ const sampleProducts = [
   },
   {
     id: 3,
-    name: "Product 3",
-    image: "product3.webp",
+    name: "HABITAT eco 2 single-wall, for 2 l",
+    image: "/placeholder.svg?height=200&width=200&text=HABITAT+eco+2",
     price: "On Request",
     itemNumber: "0035004130",
     category: "Bioreactors",
@@ -146,8 +310,8 @@ const sampleProducts = [
   },
   {
     id: 4,
-    name: "Product 4",
-    image: "product4.webp",
+    name: "HABITAT eco 5 single-wall, for 5 l",
+    image: "/placeholder.svg?height=200&width=200&text=HABITAT+eco+5",
     price: "On Request",
     itemNumber: "0035004131",
     category: "Bioreactors",
@@ -201,10 +365,8 @@ export default function ProductsPage() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState(null)
   const [productModalOpen, setProductModalOpen] = useState(false)
-
   const [selectedForComparison, setSelectedForComparison] = useState([])
   const [comparisonModalOpen, setComparisonModalOpen] = useState(false)
-  
 
   // Check if we're on mobile
   useEffect(() => {
@@ -239,7 +401,6 @@ export default function ProductsPage() {
     setProductModalOpen(true)
   }
 
-  // Start toggle product selection for comparison
   const toggleProductComparison = (product) => {
     setSelectedForComparison((prev) => {
       const isSelected = prev.find((p) => p.id === product.id)
@@ -261,137 +422,6 @@ export default function ProductsPage() {
       setComparisonModalOpen(true)
     }
   }
-
-
-  const renderComparisonModal = () => {
-      if (selectedForComparison.length === 0) return null
-  
-      // Get all unique technical data keys
-      const allKeys = new Set()
-      selectedForComparison.forEach((product) => {
-        Object.keys(product.technicalData || {}).forEach((key) => allKeys.add(key))
-      })
-      const sortedKeys = Array.from(allKeys).sort()
-  
-      return (
-        <Dialog open={comparisonModalOpen} onOpenChange={setComparisonModalOpen}>
-          <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto">
-            <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-[#00599c]">
-                Product Comparison ({selectedForComparison.length} products)
-              </DialogTitle>
-            </DialogHeader>
-  
-            <div className="space-y-6">
-              {/* Product Headers */}
-              <div
-                className="grid gap-4"
-                style={{ gridTemplateColumns: `200px repeat(${selectedForComparison.length}, 1fr)` }}
-              >
-                <div className="font-semibold text-gray-600">Product</div>
-                {selectedForComparison.map((product) => (
-                  <div key={product.id} className="space-y-2">
-                    <img
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      className="w-full h-32 object-contain bg-gray-50 rounded"
-                    />
-                    <h3 className="font-semibold text-sm">{product.name}</h3>
-                    <p className="text-xs text-gray-500">ID: {product.itemNumber}</p>
-                    <p className="text-[#00599c] font-semibold">{product.price}</p>
-                  </div>
-                ))}
-              </div>
-  
-              {/* Technical Specifications Comparison */}
-              <div className="border rounded-lg overflow-hidden">
-                <div className="bg-gray-50 p-3 border-b">
-                  <h3 className="font-semibold text-lg">Technical Specifications</h3>
-                </div>
-  
-                <div className="divide-y">
-                  {sortedKeys.map((key, index) => (
-                    <div
-                      key={key}
-                      className={`grid gap-4 p-3 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
-                      style={{ gridTemplateColumns: `200px repeat(${selectedForComparison.length}, 1fr)` }}
-                    >
-                      <div className="font-medium text-gray-700">{key}</div>
-                      {selectedForComparison.map((product) => (
-                        <div key={product.id} className="text-sm">
-                          {product.technicalData?.[key] || "N/A"}
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                </div>
-              </div>
-  
-              {/* Action Buttons */}
-              <div className="flex justify-between items-center pt-4 border-t">
-                <Button variant="outline" onClick={clearComparison}>
-                  Clear Selection
-                </Button>
-                <div className="flex gap-2">
-                  {selectedForComparison.map((product) => (
-                    <CartButton key={product.id} product={product} size="sm" className="bg-[#00599c] hover:bg-[#004080]">
-                      Add {product.name.split(" ")[2]} to Cart
-                    </CartButton>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
-      )
-    }
-  
-    const renderComparisonBar = () => {
-      if (selectedForComparison.length === 0) return null
-  
-      return (
-        <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-          <Card className="p-4 shadow-lg border-2 border-[#00599c]">
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2">
-                <Package className="h-5 w-5 text-[#00599c]" />
-                <span className="font-semibold">Compare Products ({selectedForComparison.length}/3)</span>
-              </div>
-  
-              <div className="flex gap-2">
-                {selectedForComparison.map((product) => (
-                  <div key={product.id} className="flex items-center gap-1 bg-blue-50 px-2 py-1 rounded text-sm">
-                    <span className=" max-w-20">{product.name}</span>
-                    <button
-                      onClick={() => toggleProductComparison(product)}
-                      className="text-red-500 hover:text-red-700 ml-1"
-                    >
-                      ×
-                    </button>
-                  </div>
-                ))}
-              </div>
-  
-              <div className="flex gap-2">
-                <Button
-                  size="sm"
-                  onClick={openComparisonModal}
-                  disabled={selectedForComparison.length < 2}
-                  className="bg-[#00599c] hover:bg-[#004080]"
-                >
-                  Compare
-                </Button>
-                <Button size="sm" variant="outline" onClick={clearComparison}>
-                  Clear
-                </Button>
-              </div>
-            </div>
-          </Card>
-        </div>
-      )
-    }
-
-  // End toggle product selection for comparison
 
   const renderSidebar = () => {
     const sidebarContent = (
@@ -618,8 +648,8 @@ export default function ProductsPage() {
 
               {/* Action Buttons */}
               <div className="space-y-3 pt-4 border-t">
-                <CartButton 
-                  product={selectedProduct} 
+                <CartButton
+                  product={selectedProduct}
                   className="w-full py-3 bg-[#00599c] hover:bg-[#004080] text-white"
                   showIcon={true}
                 >
@@ -627,7 +657,7 @@ export default function ProductsPage() {
                 </CartButton>
                 <Button
                   variant="outline"
-                  className="w-full border-[#00599c] text-[#00599c] hover:bg-[#00599c] hover:text-white py-3"
+                  className="w-full border-[#00599c] text-[#00599c] hover:bg-[#00599c] hover:text-white py-3 bg-transparent"
                 >
                   <FileText className="h-5 w-5 mr-2" />
                   Request Quotation
@@ -647,6 +677,134 @@ export default function ProductsPage() {
           </div>
         </DialogContent>
       </Dialog>
+    )
+  }
+
+  const renderComparisonModal = () => {
+    if (selectedForComparison.length === 0) return null
+
+    // Get all unique technical data keys
+    const allKeys = new Set()
+    selectedForComparison.forEach((product) => {
+      Object.keys(product.technicalData || {}).forEach((key) => allKeys.add(key))
+    })
+    const sortedKeys = Array.from(allKeys).sort()
+
+    return (
+      <Dialog open={comparisonModalOpen} onOpenChange={setComparisonModalOpen}>
+        <DialogContent className="max-w-7xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-[#00599c]">
+              Product Comparison ({selectedForComparison.length} products)
+            </DialogTitle>
+          </DialogHeader>
+
+          <div className="space-y-6">
+            {/* Product Headers */}
+            <div
+              className="grid gap-4"
+              style={{ gridTemplateColumns: `200px repeat(${selectedForComparison.length}, 1fr)` }}
+            >
+              <div className="font-semibold text-gray-600">Product</div>
+              {selectedForComparison.map((product) => (
+                <div key={product.id} className="space-y-2">
+                  <img
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.name}
+                    className="w-full h-32 object-contain bg-gray-50 rounded"
+                  />
+                  <h3 className="font-semibold text-sm">{product.name}</h3>
+                  <p className="text-xs text-gray-500">ID: {product.itemNumber}</p>
+                  <p className="text-[#00599c] font-semibold">{product.price}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Technical Specifications Comparison */}
+            <div className="border rounded-lg overflow-hidden">
+              <div className="bg-gray-50 p-3 border-b">
+                <h3 className="font-semibold text-lg">Technical Specifications</h3>
+              </div>
+
+              <div className="divide-y">
+                {sortedKeys.map((key, index) => (
+                  <div
+                    key={key}
+                    className={`grid gap-4 p-3 ${index % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+                    style={{ gridTemplateColumns: `200px repeat(${selectedForComparison.length}, 1fr)` }}
+                  >
+                    <div className="font-medium text-gray-700">{key}</div>
+                    {selectedForComparison.map((product) => (
+                      <div key={product.id} className="text-sm">
+                        {product.technicalData?.[key] || "N/A"}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex justify-between items-center pt-4 border-t">
+              <Button variant="outline" onClick={clearComparison}>
+                Clear Selection
+              </Button>
+              <div className="flex gap-2">
+                {selectedForComparison.map((product) => (
+                  <CartButton key={product.id} product={product} size="sm" className="bg-[#00599c] hover:bg-[#004080]">
+                    Add {product.name.split(" ")[2]} to Cart
+                  </CartButton>
+                ))}
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
+    )
+  }
+
+  const renderComparisonBar = () => {
+    if (selectedForComparison.length === 0) return null
+
+    return (
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+        <Card className="p-4 shadow-lg border-2 border-[#00599c]">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <Package className="h-5 w-5 text-[#00599c]" />
+              <span className="font-semibold">Compare Products ({selectedForComparison.length}/3)</span>
+            </div>
+
+            <div className="flex gap-2">
+              {selectedForComparison.map((product) => (
+                <div key={product.id} className="flex items-center gap-1 bg-blue-50 px-2 py-1 rounded text-sm">
+                  <span className="truncate max-w-20">{product.name.split(" ")[2]}</span>
+                  <button
+                    onClick={() => toggleProductComparison(product)}
+                    className="text-red-500 hover:text-red-700 ml-1"
+                  >
+                    ×
+                  </button>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-2">
+              <Button
+                size="sm"
+                onClick={openComparisonModal}
+                disabled={selectedForComparison.length < 2}
+                className="bg-[#00599c] hover:bg-[#004080]"
+              >
+                Compare
+              </Button>
+              <Button size="sm" variant="outline" onClick={clearComparison}>
+                Clear
+              </Button>
+            </div>
+          </div>
+        </Card>
+      </div>
     )
   }
 
@@ -687,14 +845,53 @@ export default function ProductsPage() {
         </div>
         <div>
           <img
-            src="bioreactor-habitat-setup.webp"
+            src="/placeholder.svg?height=400&width=600&text=Bioreactor+System"
             alt="Bioreactor System"
             className="w-full h-80 object-cover rounded-lg shadow-lg"
           />
         </div>
       </div>
 
-      
+      <div className="grid md:grid-cols-3 gap-6">
+        <Card className="p-6">
+          <h3 className="font-bold text-lg mb-3">Equipment for stand</h3>
+          <p className="text-gray-600 text-sm mb-4">
+            The HABITAT ecosystem is for use and easy to set up and. The above for individual components of the HABITAT
+            ecosystem is the easy removal for disinfection.
+          </p>
+          <img
+            src="/placeholder.svg?height=200&width=300&text=Equipment+Stand"
+            alt="Equipment Stand"
+            className="w-full h-32 object-cover rounded"
+          />
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="font-bold text-lg mb-3">Clearly defined features</h3>
+          <p className="text-gray-600 text-sm mb-4">
+            The HABITAT ecosystem is features clearly defined with its easy identification and assembly. The simplified
+            the method of connecting the bioreactor to various other components.
+          </p>
+          <img
+            src="/placeholder.svg?height=200&width=300&text=Clear+Features"
+            alt="Clear Features"
+            className="w-full h-32 object-cover rounded"
+          />
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="font-bold text-lg mb-3">Touch HMI display</h3>
+          <p className="text-gray-600 text-sm mb-4">
+            The intuitive graphical interface is equipped with colour TFT which provide operation and control
+            information over 8 available. The LCD touchscreen for ease of the touch operation.
+          </p>
+          <img
+            src="/placeholder.svg?height=200&width=300&text=Touch+Display"
+            alt="Touch Display"
+            className="w-full h-32 object-cover rounded"
+          />
+        </Card>
+      </div>
     </div>
   )
 
@@ -726,7 +923,6 @@ export default function ProductsPage() {
                     alt={product.name}
                     className="w-full h-48 object-contain p-4 bg-gray-50"
                   />
-
                   <div className="absolute top-2 right-2">
                     <input
                       type="checkbox"
@@ -738,21 +934,7 @@ export default function ProductsPage() {
                       className="w-4 h-4 text-[#00599c] bg-white border-2 border-gray-300 rounded focus:ring-[#00599c] focus:ring-2"
                     />
                   </div>
-                  
                 </div>
-
-                  <div className="absolute top-2 right-2">
-                    <input
-                      type="checkbox"
-                      checked={selectedForComparison.find((p) => p.id === product.id) !== undefined}
-                      onChange={() => toggleProductComparison(product)}
-                      disabled={
-                        selectedForComparison.length >= 3 && !selectedForComparison.find((p) => p.id === product.id)
-                      }
-                      className="w-4 h-4 text-[#00599c] bg-white border-2 border-gray-300 rounded focus:ring-[#00599c] focus:ring-2"
-                    />
-                  </div>
-
                 <CardContent className="p-4">
                   <h3 className="font-semibold text-sm mb-2 line-clamp-2">{product.name}</h3>
                   <div className="space-y-2">
@@ -766,31 +948,26 @@ export default function ProductsPage() {
                     <Button
                       size="sm"
                       variant="outline"
-                      className="flex-1 w-full gap-0"
+                      className="flex-1 bg-transparent"
                       onClick={() => openProductModal(product)}
                     >
                       <Eye className="h-4 w-4 mr-2" />
                       View
                     </Button>
-                    <CartButton 
-                      product={product} 
-                      size="sm" 
-                      className="flex-1 gap-0 w-full bg-[#00599c] hover:bg-[#004080]"
-                    />
+                    <CartButton product={product} size="sm" className="flex-1 bg-[#00599c] hover:bg-[#004080]" />
                   </div>
                 </CardContent>
               </>
             ) : (
               <CardContent className="p-4">
-                <div className="relative">
                 <div className="flex gap-4">
-                  <img
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    className="w-24 h-24 object-contain bg-gray-50 rounded"
-                  />
-
-                      <div className="absolute -top-1 -right-1">
+                  <div className="relative">
+                    <img
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      className="w-24 h-24 object-contain bg-gray-50 rounded"
+                    />
+                    <div className="absolute -top-1 -right-1">
                       <input
                         type="checkbox"
                         checked={selectedForComparison.find((p) => p.id === product.id) !== undefined}
@@ -802,7 +979,6 @@ export default function ProductsPage() {
                       />
                     </div>
                   </div>
-
                   <div className="flex-1">
                     <h3 className="font-semibold text-lg mb-2">{product.name}</h3>
                     <div className="flex justify-between items-center">
@@ -811,19 +987,11 @@ export default function ProductsPage() {
                         <div className="text-xs text-gray-500">Ident. No. {product.itemNumber}</div>
                       </div>
                       <div className="flex gap-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => openProductModal(product)}
-                        >
+                        <Button size="sm" variant="outline" onClick={() => openProductModal(product)}>
                           <Eye className="h-4 w-4 mr-2" />
                           View
                         </Button>
-                        <CartButton 
-                          product={product} 
-                          size="sm" 
-                          className="bg-[#00599c] hover:bg-[#004080]"
-                        />
+                        <CartButton product={product} size="sm" className="bg-[#00599c] hover:bg-[#004080]" />
                       </div>
                     </div>
                   </div>
@@ -851,15 +1019,15 @@ export default function ProductsPage() {
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: "Accessory 1", id: "0035004128" },
-              { name: "Accessory 2", id: "0035004123" },
-              { name: "Accessory 3", id: "0035004125" },
-              { name: "Accessory 4", id: "0035004127" },
+              { name: "HA.s.tm.1 Temperature sensor, for 1 l", id: "0035004128" },
+              { name: "HA.s.tm.2 Temperature sensor, for 2 l", id: "0035004123" },
+              { name: "HA.s.tm.5 Temperature sensor, for 5 l", id: "0035004125" },
+              { name: "HA.s.tm.10 Temperature sensor, for 10 l", id: "0035004127" },
             ].map((item, index) => (
               <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <img
-                    src="accessory.webp"
+                    src="/placeholder.svg?height=200&width=200&text=Temperature+Sensor"
                     alt={item.name}
                     className="w-full h-48 object-contain p-4 bg-gray-50"
                   />
@@ -985,7 +1153,7 @@ export default function ProductsPage() {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="border-[#00599c] text-[#00599c] hover:bg-[#00599c] hover:text-white"
+                    className="border-[#00599c] text-[#00599c] hover:bg-[#00599c] hover:text-white bg-transparent"
                   >
                     <Download className="h-4 w-4 mr-2" />
                     Download
@@ -1038,7 +1206,7 @@ export default function ProductsPage() {
         {/* Mobile menu button */}
         {isMobile && (
           <div className="mb-4">
-            <Button variant="outline" className="mb-4" onClick={() => setSidebarOpen(true)}>
+            <Button variant="outline" className="mb-4 bg-transparent" onClick={() => setSidebarOpen(true)}>
               <Menu className="h-4 w-4 mr-2" />
               Product Categories
             </Button>
@@ -1050,7 +1218,8 @@ export default function ProductsPage() {
         {renderProductModal()}
         {renderComparisonModal()}
       </div>
-        {renderComparisonBar()}
+
+      {renderComparisonBar()}
     </div>
   )
 }

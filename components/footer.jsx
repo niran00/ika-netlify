@@ -1,5 +1,5 @@
 "use client"
-import Chat from '../components/Chat';
+import Chat from './chatbot-components/Chat';
 import React from "react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"

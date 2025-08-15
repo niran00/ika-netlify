@@ -9,7 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { loginUser, registerUser } from "@/app/[lang]/actions/auth"
 import { useActionState } from "react"
-import { AuthGuard } from "@/components/auth-guard"
+import { AuthGuard } from "@/components/authentication-components/auth-guard"
 import { useAuth } from "@/app/context/auth-context"
 
 export default function LoginPage() {
