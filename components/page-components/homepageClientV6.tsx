@@ -54,9 +54,6 @@ export default function HomepageClientV6() {
       {/* Hero Section */}
       <div
         className="h-[75vh] w-full bg-cover bg-center grid place-items-center"
-        style={{
-          backgroundImage: `url('/abstract-waves.jpg')`,
-        }}
       >
         <Homebanner></Homebanner>
       </div>

@@ -60,7 +60,7 @@ export default function Homepage2Client(data : any){
                     <div
                       className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
                       style={{
-                        backgroundImage: `url('/abstract-waves.jpg')`,
+                        backgroundImage: `url('/banners/Process-Banner-Process-Perfection-Starts-Here-3.png')`,
                       }}
                     />
 
@@ -117,6 +117,7 @@ export default function Homepage2Client(data : any){
             </section>
 
 
+                      
 
         </>
     )

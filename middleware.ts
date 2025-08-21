@@ -1,30 +1,51 @@
 // middleware.ts
-import { NextRequest, NextResponse } from 'next/server';
-import { defaultLocale, locales } from '@/lib/lang-utils';
+import { NextRequest, NextResponse } from "next/server";
+import { defaultLocale, locales } from "@/lib/lang-utils";
 
-// let locales = ["en", "th"];
-// let defaultLocale = "en";
-
-// Get the preferred locale, similar to the above or using a library
-function getLocale(request: NextRequest) {
-  return defaultLocale;
+async function getRegionFromIP(ip: string | null): Promise<string | undefined> {
+  if (!ip) return undefined;
+  try {
+    const res = await fetch(`https://ipapi.co/${ip}/country/`);
+    if (!res.ok) return undefined;
+    const countryCode = (await res.text())?.trim();
+    return countryCode || undefined;
+  } catch {
+    return undefined;
+  }
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  let region: string | undefined = request.cookies.get("region")?.value;
+
+  if (!region) {
+    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+               request.headers.get("x-real-ip")?.trim() ||
+               null;
+    region = await getRegionFromIP(ip);
+  }
+
   const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) =>
+      pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  // if (pathnameHasLocale) return;
-  if (pathnameHasLocale) return NextResponse.next();
+  const locale = pathnameHasLocale ? null : defaultLocale;
 
-  const locale = getLocale(request);
+  let res: NextResponse;
+  if (locale) {
+    request.nextUrl.pathname = `/${locale}${pathname}`;
+    res = NextResponse.rewrite(request.nextUrl);
+  } else {
+    res = NextResponse.next();
+  }
 
-  // Redirect if there is no locale
+  if (region && !request.cookies.get("region")) {
+    res.cookies.set("region", region, { path: "/", maxAge: 60 * 60 * 24 * 30 });
+  }
 
-  request.nextUrl.pathname = `/${locale}${pathname}`;
-  return NextResponse.rewrite(request.nextUrl); // "/" behaves the same as "/en"
+  return res;
 }
 
 export const config = {

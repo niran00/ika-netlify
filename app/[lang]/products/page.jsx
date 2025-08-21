@@ -60,7 +60,7 @@ const sampleProducts = [
   {
     id: 1,
     name: "Product 1 ",
-    image: "product1.webp",
+    image: "/product1.webp",
     price: "5000",
     itemNumber: "0035004128",
     category: "Bioreactors",
@@ -89,7 +89,7 @@ const sampleProducts = [
   {
     id: 2,
     name: "Product 2",
-    image: "product2.webp",
+    image: "/product2.webp",
     price: "6000",
     itemNumber: "0035004129",
     category: "Bioreactors",
@@ -118,7 +118,7 @@ const sampleProducts = [
   {
     id: 3,
     name: "Product 3",
-    image: "product3.webp",
+    image: "/product3.webp",
     price: "On Request",
     itemNumber: "0035004130",
     category: "Bioreactors",
