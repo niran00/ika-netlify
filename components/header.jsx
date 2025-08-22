@@ -24,6 +24,8 @@ import { CartSidebar } from '@/components/cart-components/cart-sidebar'
 
 import TabMenu from "./menu-components/tabMenuProducts"
 import { UserMenu } from "@/components/authentication-components/user-menu"
+import { RegionSwitcher } from "./region-switcher"
+import LanguageSwitcher from "@/components/language-switcher"
 
 const productSuggestions = [
   { name: "IKA RV 10 Digital", category: "Rotary Evaporators", type: "product", branch: "laboratory" },
@@ -58,6 +60,27 @@ export function Header({ hidden, dict }) {
 
   const [activeDropdown, setActiveDropdown] = useState(null);
 
+
+  // START of Language support 
+
+  const pathParts = pathname.split("/").filter(Boolean);
+  const supportedLangs = ["en", "th"];
+  const currentLang = supportedLangs.includes(pathParts[0]) ? pathParts[0] : "en";
+
+  const onLanguageChange = (newLang) => {
+    const updatedParts = [...pathParts];
+    if (supportedLangs.includes(updatedParts[0])) {
+      updatedParts[0] = newLang;
+    } else {
+      updatedParts.unshift(newLang);
+    }
+    const newPath = "/" + updatedParts.join("/");
+    const query = searchParams.toString();
+    const fullPath = query ? `${newPath}?${query}` : newPath;
+    router.push(fullPath);
+  };
+
+  // END of Language support 
 
 const megaMenuData = {
   "LABORATORY TECHNOLOGY": {
@@ -562,6 +585,7 @@ const defaultFeaturedContent = {
             <div className="hidden md:block flex items-center gap-4">
              <Button variant="ghost" size="sm" className="text-xs px-2">
                <Globe className="h-4 w-4 mr-1" />
+               <LanguageSwitcher currentLanguage={currentLang} onLanguageChange={onLanguageChange} />
                <span className="hidden sm:inline">EN</span>
              </Button>
              <Button variant="ghost" size="sm" className="text-xs px-2">
@@ -570,6 +594,7 @@ const defaultFeaturedContent = {
              <Button variant="ghost" size="sm" className="text-xs px-2">
                  <CartSidebar />
              </Button>
+             <RegionSwitcher/>
             </div>
 
 

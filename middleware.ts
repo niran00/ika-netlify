@@ -1,51 +1,30 @@
 // middleware.ts
-import { NextRequest, NextResponse } from "next/server";
-import { defaultLocale, locales } from "@/lib/lang-utils";
+import { NextRequest, NextResponse } from 'next/server';
+import { defaultLocale, locales } from '@/lib/lang-utils';
 
-async function getRegionFromIP(ip: string | null): Promise<string | undefined> {
-  if (!ip) return undefined;
-  try {
-    const res = await fetch(`https://ipapi.co/${ip}/country/`);
-    if (!res.ok) return undefined;
-    const countryCode = (await res.text())?.trim();
-    return countryCode || undefined;
-  } catch {
-    return undefined;
-  }
+// let locales = ["en", "th"];
+// let defaultLocale = "en";
+
+// Get the preferred locale, similar to the above or using a library
+function getLocale(request: NextRequest) {
+  return defaultLocale;
 }
 
-export async function middleware(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-
-  let region: string | undefined = request.cookies.get("region")?.value;
-
-  if (!region) {
-    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-               request.headers.get("x-real-ip")?.trim() ||
-               null;
-    region = await getRegionFromIP(ip);
-  }
-
   const pathnameHasLocale = locales.some(
-    (locale) =>
-      pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  const locale = pathnameHasLocale ? null : defaultLocale;
+  // if (pathnameHasLocale) return;
+  if (pathnameHasLocale) return NextResponse.next();
 
-  let res: NextResponse;
-  if (locale) {
-    request.nextUrl.pathname = `/${locale}${pathname}`;
-    res = NextResponse.rewrite(request.nextUrl);
-  } else {
-    res = NextResponse.next();
-  }
+  const locale = getLocale(request);
 
-  if (region && !request.cookies.get("region")) {
-    res.cookies.set("region", region, { path: "/", maxAge: 60 * 60 * 24 * 30 });
-  }
+  // Redirect if there is no locale
 
-  return res;
+  request.nextUrl.pathname = `/${locale}${pathname}`;
+  return NextResponse.rewrite(request.nextUrl); // "/" behaves the same as "/en"
 }
 
 export const config = {

@@ -7,9 +7,11 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-import { loginUserDB, registerUser } from "../actions/auth"
+import {  registerUser } from "../actions/auth"
 import { AuthGuard } from "@/components/authentication-components/auth-guard"
 import { useAuth } from "@/app/context/auth-context"
+import loginUserDB from "@/pages/api/oracles-test"
+
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true)
