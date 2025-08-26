@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import {  registerUser } from "../actions/auth"
 import { AuthGuard } from "@/components/authentication-components/auth-guard"
 import { useAuth } from "@/app/context/auth-context"
-import loginUserDB from "@/pages/api/oracles-test"
+import { loginUserDB } from "@/lib/auth-client"
 
 
 export default function LoginPage() {
