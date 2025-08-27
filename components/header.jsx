@@ -583,18 +583,19 @@ const defaultFeaturedContent = {
             </nav>
 
             <div className="hidden md:block flex items-center gap-4">
-             <Button variant="ghost" size="sm" className="text-xs px-2">
-               <Globe className="h-4 w-4 mr-1" />
-               <LanguageSwitcher currentLanguage={currentLang} onLanguageChange={onLanguageChange} />
-               <span className="hidden sm:inline">EN</span>
-             </Button>
-             <Button variant="ghost" size="sm" className="text-xs px-2">
+            
+              <div className="flex">
+
+                <CartSidebar dict={dict}/><LanguageSwitcher currentLanguage={currentLang} onLanguageChange={onLanguageChange} />
+             
                 <UserMenu />
-             </Button>
-             <Button variant="ghost" size="sm" className="text-xs px-2">
-                 <CartSidebar />
-             </Button>
-             <RegionSwitcher/>
+             
+             
+                <CartSidebar />
+             
+                <RegionSwitcher/>
+
+              </div>
             </div>
 
 

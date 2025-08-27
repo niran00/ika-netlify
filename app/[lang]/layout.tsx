@@ -16,6 +16,8 @@ import { AuthProvider } from "@/app/context/auth-context"
 import { CartProvider } from "@/app/context/cart-context"
 
 
+import LanguageDetector from "@/components/detect-language";
+
 // export const metadata = {
 //   title: "IKA - Laboratory & Process Technology",
 //   description: "Leading manufacturer of laboratory and process technology equipment",
@@ -67,6 +69,7 @@ export default async function RootLayout({
                     <Header dict={dict} hidden={false} />
                     <Header2 hidden={false}/>
                     <main className="flex-1">{children}</main>
+                    <LanguageDetector />
                     <Footer />
                   </div>
                 </div>
