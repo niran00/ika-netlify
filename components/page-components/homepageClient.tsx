@@ -1,5 +1,5 @@
 "use client"
-import Chat from '@/components/Chat';
+import Chat from '@/components/chatbot-components/Chat';
 import React from "react"
 import Image from "next/image"
 import { useState, useEffect } from "react"
@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import Typewriter from 'typewriter-effect'
 import Entrytyper from  '@/components/Entrytyper';
 import { ChevronDown } from 'lucide-react';
-import ChatLauncher from "@/components/ChatLauncher"
+import ChatLauncher from "@/components/chatbot-components/ChatLauncher"
 
 import {
   ArrowRight,

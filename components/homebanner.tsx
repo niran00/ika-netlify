@@ -7,7 +7,7 @@ import { Card, CardContent } from "./ui/card"
 import { Badge } from "./ui/badge"
 import { Input } from "./ui/input"
 import Link from "next/link"
-import ChatLauncher from "./ChatLauncher"
+import ChatLauncher from "./chatbot-components/ChatLauncher"
 import "flag-icons/css/flag-icons.min.css";
 import Preloader from "./preloader"
 import { useDictionary } from '@/app/context/dictionary-context';
@@ -117,6 +117,7 @@ export default function Homepage2Client(data : any){
             </section>
 
 
+                      
 
         </>
     )

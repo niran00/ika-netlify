@@ -5,9 +5,14 @@ import path from "path"
 import bcrypt from "bcryptjs"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
+import crypto from "crypto"
+import oracledb from "oracledb"
+
+
 
 const USERS_FILE = path.join(process.cwd(), "app", "data", "users.json")
 const REGISTRATIONS_FILE = path.join(process.cwd(), "app", "data", "registrations.json")
+
 
 // Ensure data directory exists
 async function ensureDataDirectory() {
@@ -235,7 +240,7 @@ export async function getCurrentUser() {
 
     const session = JSON.parse(sessionCookie.value)
     const users = await readUsers()
-    const user = users.find((u) => u.id === session.id)
+    const user = users.find((u) => u.ID === session.ID)
 
     if (!user) {
       return null
@@ -295,3 +300,6 @@ export async function updateUserProfile(prevState, formData) {
     return { error: "An error occurred while updating profile" }
   }
 }
+
+
+

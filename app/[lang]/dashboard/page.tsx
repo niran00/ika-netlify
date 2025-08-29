@@ -14,7 +14,7 @@ import { Separator } from "@/components/ui/separator"
 import { Settings, Download, Calendar, CheckCircle, Clock, Plus, Edit, FileText, Shield, Zap, Activity, LogOut } from 'lucide-react'
 import { updateUserProfile, logoutUser } from "@/app/[lang]/actions/auth"
 import { useActionState } from "react"
-import { AuthGuard } from "@/components/auth-guard"
+import { AuthGuard } from "@/components/authentication-components/auth-guard"
 import { useAuth } from "@/app/context/auth-context"
 
 export default function Dashboard() {

@@ -13,7 +13,10 @@ import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AuthProvider } from "@/app/context/auth-context"
+import { CartProvider } from "@/app/context/cart-context"
 
+
+import LanguageDetector from "@/components/detect-language";
 
 // export const metadata = {
 //   title: "IKA - Laboratory & Process Technology",
@@ -57,19 +60,22 @@ export default async function RootLayout({
     <html lang={lang} >
       <body className={inter.className}>
         <AuthProvider>
-        <SidebarProvider defaultOpen={false}>
-          <DictionaryProvider lang={lang} dict={dict}>
-            <div className="flex min-h-screen w-full flex-col md:flex-row">
-              <AppSidebar />
-              <div className="flex-1 flex flex-col">
-                <Header dict={dict} hidden={false} />
-                <Header2 hidden={false}/>
-                <main className="flex-1">{children}</main>
-                <Footer />
-              </div>
-            </div>
-          </DictionaryProvider>
-        </SidebarProvider>
+          <CartProvider>
+            <SidebarProvider defaultOpen={false}>
+              <DictionaryProvider lang={lang} dict={dict}>
+                <div className="flex min-h-screen w-full flex-col md:flex-row">
+                  <AppSidebar />
+                  <div className="flex-1 flex flex-col">
+                    <Header dict={dict} hidden={false} />
+                    <Header2 hidden={false}/>
+                    <main className="flex-1">{children}</main>
+                    {/* <LanguageDetector /> */}
+                    <Footer />
+                  </div>
+                </div>
+              </DictionaryProvider>
+            </SidebarProvider>
+          </CartProvider>
         </AuthProvider>
       </body>
     </html>

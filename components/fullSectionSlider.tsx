@@ -94,7 +94,7 @@ export default function SimpleSlider() {
                          <div className="relative z-10">
 
                            <img
-                                   src="/scale_lab.jpg"
+                                   src="/banners/IKA_Process_Banner-Smart_Efficient,_Reliable.png"
                                    alt="IKA Company Building"
                                    className="w-full rounded-lg border"
                                  />
@@ -282,7 +282,7 @@ export default function SimpleSlider() {
                          <div className="relative z-10">
 
                            <img
-                                   src="/sus-1.webp"
+                                   src="/banners/Process-Banner-Safe Sustainable-Scalable.png"
                                    alt="IKA Company Building"
                                    className="rounded-lg border w-full"
                                  />
