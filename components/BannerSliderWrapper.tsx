@@ -27,6 +27,7 @@ export default function BannerSliderWithButtons() {
   const currentSlide = slides[currentIndex];
 
   return (
+    <>
     <div className="flex gap-6 h-[500px]">
       {/* Left - Slider */}
       <div className="relative w-3/4 h-full rounded-lg overflow-hidden bg-gray-200">
@@ -107,5 +108,13 @@ export default function BannerSliderWithButtons() {
 
       </div>
     </div>
+
+
+    
+
+
+    
+    </>
+
   );
 }

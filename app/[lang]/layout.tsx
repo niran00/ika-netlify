@@ -69,7 +69,7 @@ export default async function RootLayout({
                     <Header dict={dict} hidden={false} />
                     <Header2 hidden={false}/>
                     <main className="flex-1">{children}</main>
-                    <LanguageDetector />
+                    {/* <LanguageDetector /> */}
                     <Footer />
                   </div>
                 </div>

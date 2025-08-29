@@ -84,7 +84,7 @@ export default function IndustryGrid() {
       </section> */}
 
       <div className="w-full pb-12">
-        <div className="grid px-12  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="grid px-12  grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-2">
           {industries.map((industry, index) => (
             <div key={index} className="group relative overflow-hidden rounded-xl aspect-[3/2] cursor-pointer">
               <Image

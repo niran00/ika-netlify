@@ -98,50 +98,50 @@ export default function OverlappingSectionsB() {
         <section style={{height : "100%", margin : "0px", width : "100%", borderRadius: "0px"}} ref={setPanelRef(4)} className="panel panelE bg-white">
           <div className="">
 
-                 <section className="py-20 px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl font-light text-gray-800 mb-6">Welcome to IKA</h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                IKA is where people turn visions into reality.
-              </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                When the corporate history of IKA began in 1910, China had not yet become a People's Republic and the
-                word "globalization" had not been invented yet. Today, the IKA group has over 900 employees at 16
-                locations on four continents.
-              </p>
+        <section className="py-20 px-8 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 className="text-4xl font-light text-gray-800 mb-6">Welcome to IKA</h2>
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                  IKA is where people turn visions into reality.
+                </p>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  When the corporate history of IKA began in 1910, China had not yet become a People's Republic and the
+                  word "globalization" had not been invented yet. Today, the IKA group has over 900 employees at 16
+                  locations on four continents.
+                </p>
 
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-600">Family-run, medium-sized company with short decision-making paths</p>
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-600">Family-run, medium-sized company with short decision-making paths</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-600">Investment decisions made with a long-view mindset</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-600">Serving markets of high social relevance</p>
+                  </div>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-600">Investment decisions made with a long-view mindset</p>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-600">Serving markets of high social relevance</p>
-                </div>
+
+                <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent">
+                  Learn More About IKA
+                </Button>
               </div>
 
-              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 bg-transparent">
-                Learn More About IKA
-              </Button>
-            </div>
-
-            <div className="relative">
-              <img
-                src="/ika_staufen_1280x1280.webp"
-                alt="IKA Company Building"
-                className="w-full rounded-lg shadow-lg"
-              />
+              <div className="relative">
+                <img
+                  src="/ika_staufen_1280x1280.webp"
+                  alt="IKA Company Building"
+                  className="w-full rounded-lg shadow-lg"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
       {/* Company History Section */}
       <section className="py-20 px-8 bg-gray-50">
