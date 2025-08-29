@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 
+
 export default function OverlappingSections() {
   const panelsRef = useRef<HTMLElement[]>([]);
   const setPanelRef =

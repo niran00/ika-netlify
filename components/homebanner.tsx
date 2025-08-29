@@ -46,7 +46,7 @@ export default function Homepage2Client(data : any){
     return (
         <>
 
-            <section className="relative w-full h-[75vh] bg-gradient-to-br from-slate-200 via-blue-600 to-slate-600 flex items-center">
+            <section className="relative w-full h-[75vh]flex items-center">
               {/* Overlayed Video Background */}
               <div className="absolute inset-0">
                 {/* Responsive Video Sources */}
@@ -60,7 +60,7 @@ export default function Homepage2Client(data : any){
                     <div
                       className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
                       style={{
-                        backgroundImage: `url('/banners/Process-Banner-Process-Perfection-Starts-Here-3.png')`,
+                        backgroundImage: `url('/20250811_IKA_Process Banner A.png')`,
                       }}
                     />
 
@@ -72,13 +72,13 @@ export default function Homepage2Client(data : any){
               <div className="container relative z-5 h-[75vh]  mx-auto px-4 flex flex-col lg:justify-between justify-center py-10">
                 {/* Centered Heading */}
                 <div className="md:flex-grow flex-col flex items-center md:justify-center">
-                  <Image
+                  {/* <Image
                     src="/logo.webp"
                     alt="IKA Logo"
                     className="w-32 h-auto mb-4 md:mb-0"
                     width={128}
                     height={128}
-                  />
+                  /> */}
 
                     {/* <div className="mt-6 flex items-center justify-center gap-4">
                           <a
@@ -102,12 +102,12 @@ export default function Homepage2Client(data : any){
                     </div> */}
 
 
-                  <div className="text-center mt-3 text-white text-sm  rounded-md p-1 bg-white opacity-90 font-bold mb-4">
+                  {/* <div className="text-center mt-3 text-white text-sm  rounded-md p-1 bg-white opacity-90 font-bold mb-4">
                      <p className="text-zinc-400">{dict.searchTxt}</p>
                   </div>
                   <div className="w-full text-center">
                     <ChatLauncher></ChatLauncher>
-                  </div>
+                  </div> */}
 
                 </div>
 

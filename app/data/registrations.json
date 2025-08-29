@@ -69,29 +69,10 @@
     "address2": "niran.millet@ika.com",
     "zipCode": "10250",
     "city": "BKK",
-    "country": "",
+    "country": "Thailand",
     "state": "BKK",
     "privacyConsent": true,
     "marketingConsent": true,
-    "registeredAt": "2025-08-08T07:52:12.153Z"
-  },
-  {
-    "id": "5",
-    "email": "nini.millet@gmail.com",
-    "title": "Ms.",
-    "firstName": "Niran",
-    "lastName": "Millet",
-    "phone": "0979535874",
-    "company": "Narinaa",
-    "department": "",
-    "address1": "35/134 Supalai Vista",
-    "address2": "",
-    "zipCode": "11000",
-    "city": "Nonthaburi",
-    "country": "Thailand",
-    "state": "Talat Kwan",
-    "privacyConsent": true,
-    "marketingConsent": true,
-    "registeredAt": "2025-08-14T09:41:11.196Z"
+    "registeredAt": "2025-08-08T07:03:04.787Z"
   }
 ]
