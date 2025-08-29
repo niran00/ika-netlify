@@ -84,7 +84,7 @@ export default function HomeSliderBanner() {
       {/* Main Content */}
       <div className="relative w-full min-h-[500px]">
         <img
-          src="/banners/ui-banner.jpg"
+          src="/banner.png"
           alt="IKA Company Building"
           className="w-full h-full object-cover rounded-2xl"
         />
@@ -122,69 +122,9 @@ export default function HomeSliderBanner() {
 
 
 
-         <div>
+        <div>
             <div className="relative w-full mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden" >
-                 {/* Main Content */}
-                <div className="flex flex-col lg:flex-row  min-h-[500px]">
-                   {/* Left Side - Article Display */}
-                   <div className="flex-1 relative content-center p-8 text-white">
-                     {/* Device Frame */}
-                     <div className="relative bg-gray-900 rounded-2xl shadow-2xl mx-10">
-                       <div className="bg-white-700 rounded-xl relative overflow-hidden">
-
-
-
-                         {/* Content */}
-                         <div className="relative z-10">
-
-                           <img
-                                   src="/ika_staufen_1280x1280.webp"
-                                   alt="IKA Company Building"
-                                   className="w-full rounded-lg border"
-                                 />
-
-
-                         </div>
-
-
-                       </div>
-                     </div>
-                   </div>
-
-                   {/* Right Side - Article Info */}
-                   <div className="flex-1 p-8 flex flex-col justify-center">
-                        <div>
-                           <span className="inline-block mb-4 px-3 border-l-4 border-solid border-[#00599c] py-1 text-lg font-medium">
-                             Our Company
-                           </span>
-                          <p className="text-md text-gray-600 mb-4 leading-relaxed">
-                            IKA is where people turn visions into reality.
-                          </p>
-                          <p className="text-gray-600 mb-4 leading-relaxed">
-                            When the corporate history of IKA began in 1910, China had not yet become a People's Republic and the
-                            word "globalization" had not been invented yet. Today, the IKA group has over 900 employees at 16
-                            locations on four continents.
-                          </p>
-
-                          <div className="space-y-4 mb-4">
-                            <div className="flex items-start space-x-3">
-                              <div className="w-2 h-2 bg-blue-[#00599c] rounded-full mt-2 flex-shrink-0"></div>
-                              <p className="text-gray-600">Family-run, medium-sized company with short decision-making paths</p>
-                            </div>
-                            <div className="flex items-start space-x-3">
-                              <div className="w-2 h-2 bg-blue-[#00599c] rounded-full mt-2 flex-shrink-0"></div>
-                              <p className="text-gray-600">Investment decisions made with a long-view mindset</p>
-                            </div>
-                            <div className="flex items-start space-x-3">
-                              <div className="w-2 h-2 bg-blue-[#00599c] rounded-full mt-2 flex-shrink-0"></div>
-                              <p className="text-gray-600">Serving markets of high social relevance</p>
-                            </div>
-                          </div>
-                          <a className="border-b-2 border-[#00599c] font-bold text-[#00599c] pb-1">Learn More About IKA</a>
-                        </div>
-
-                   </div>
-                </div>
+           
             </div>
         </div>
         

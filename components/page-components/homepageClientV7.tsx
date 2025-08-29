@@ -145,7 +145,14 @@ export default function HomepageClientV7() {
           </div>
 
           <div className="flex px-12 gap-10 my-12 items-stretch">
-            <div className="flex flex-col justify-between w-1/2 rounded-2xl overflow-hidden p-6 bg-gray-200">
+            <div
+            style={{
+              backgroundImage: "url(/vr-set.png)",
+              backgroundPosition: "top right",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "contain",
+            }}
+            className="flex flex-col justify-between w-1/2 rounded-2xl overflow-hidden p-6 bg-gray-200">
               <div>
                 <h3 className="text-xl font-bold text-[#5F5F5F] mb-3">Enter Virtual Reality</h3>
                 <p className="leading-relaxed text-[#464646]">Experience your solutions live today.</p>
@@ -158,7 +165,15 @@ export default function HomepageClientV7() {
               </Button>
             </div>
 
-            <div className="flex flex-col justify-between w-1/2 rounded-2xl overflow-hidden p-6 bg-gray-200">
+            <div 
+               style={{
+                backgroundImage: "url(/chemists.png)",
+                backgroundPosition: "130%",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+              }}
+            
+            className="flex flex-col justify-between w-1/2 rounded-2xl overflow-hidden p-6 bg-gray-200">
               <div>
                 <h3 className="text-xl font-bold text-[#5F5F5F] mb-3">Application Support</h3>
                  <p className="leading-relaxed text-[#464646]">We ensure you get the best device for your application</p>
@@ -297,17 +312,16 @@ export default function HomepageClientV7() {
               Your Career at IKA
             </h2>
             <p className="text-md lg:text-lg leading-relaxed text-[#464646]">
-              Our core competencies are mixing, dispersing, separation, and temperature control. <br />
-              From R&amp;D to full-scale production, we help you efficiently scale your processes and products.
+             Ika is looking for world-class talents ready to tackle challenging projects and shape the<br></br> future together.<br></br>Become part of the IKA team.
             </p>
 
             {/* Buttons section */}
             <div className="flex justify-center gap-5 mt-8">
               <button className="px-6 py-2 rounded-xl bg-[#00599c] text-white font-medium hover:bg-[#004880] transition">
-                Learn More
+                Ika Careers
               </button>
               <button className="px-6 py-2 rounded-xl bg-gray-200 text-[#00599c] font-medium hover:bg-gray-300 transition">
-                Contact Us
+                Educational Programs
               </button>
             </div>
           </div>
@@ -323,10 +337,10 @@ export default function HomepageClientV7() {
 const recommendedProducts = [
   {
     id: 1,
-    name: "Laboratory Technology",
-    category: "Engineered for precision and scalability in every lab setting.",
+    name: "Correcting Piping Techniques for Different Sample Types",
+    category: "Optimizing pipetting techniques ensures accurate results accoss different sample types.",
     price: "Contact for pricing",
-    image:  "/start_4_divisions_lab.webp",
+    image:  "/lab-3.webp",
     badge: "Best Seller",
     rating: 4.8,
     reviews: 124,
@@ -334,10 +348,10 @@ const recommendedProducts = [
   },
   {
     id: 2,
-    name: "Process Technology",
-    category: "The Process Technology division of IKA offers turnkey solutions",
+    name: "How to Choose the Best Lab Incubator?",
+    category: "This guide will help you understand what to look for when choosing a lab incubator.",
     price: "Contact for pricing",
-    image:  "/process_b.webp",
+    image:  "/labratory-banner.webp",
     badge: "New",
     rating: 4.9,
     reviews: 89,
@@ -345,10 +359,10 @@ const recommendedProducts = [
   },
   {
     id: 3,
-    name: "BioProcessing Solutions",
-    category: "One system suitable for all bioprocessing applications",
+    name: "Bioreactors in Bioprocessing and How They Work",
+    category: "This article explores what a bioreactor is and breaks down its key components, functionality, and the steps involved in the bioprocess workflow.",
     price: "Bioprocessing",
-    image:   "/start_4_divisions_bat.webp",
+    image:   "/lab-4.webp",
     badge: "Popular",
     rating: 4.7,
     reviews: 156,

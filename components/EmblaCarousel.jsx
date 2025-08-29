@@ -42,7 +42,7 @@ const EmblaCarousel = ({ recommendedProducts, options }) => {
                 </div>
           
                 <CardContent className="text-start px-4 py-8 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-light text-gray-800 mb-2">
+                  <h3 className="text-2xl text-[#00599c] font-light mb-2">
                     {product.name}
                   </h3>
                   <p className="text-lg text-gray-600 mb-2 leading-relaxed">
@@ -53,7 +53,7 @@ const EmblaCarousel = ({ recommendedProducts, options }) => {
                       href="#"
                       className="flex justify-center items-center text-[#00599c] text-base gap-1 hover:underline"
                     >
-                      View Solutions <ChevronRight className="w-4 h-4" />
+                      Read Article <ChevronRight className="w-4 h-4" />
                     </a>
                   </div>
                 </CardContent>
