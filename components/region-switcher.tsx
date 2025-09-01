@@ -30,7 +30,11 @@ export function RegionSwitcher() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="max-h-60 overflow-y-auto">
         {countries.map((country) => (
-          <DropdownMenuItem key={country.code} onClick={() => updateRegion(country.code)} className="gap-2">
+          <DropdownMenuItem
+            key={country.code}
+            onClick={() => updateRegion(country.code)}
+            className="gap-2"
+          >
             {country.flag} {country.name}
           </DropdownMenuItem>
         ))}

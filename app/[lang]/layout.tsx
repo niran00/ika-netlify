@@ -16,6 +16,10 @@ import { AuthProvider } from "@/app/context/auth-context"
 import { CartProvider } from "@/app/context/cart-context"
 
 
+import { cookies } from "next/headers"
+
+import { langQuery } from "@/lib/lang-utils";
+
 import LanguageDetector from "@/components/detect-language";
 
 // export const metadata = {
@@ -55,6 +59,13 @@ export default async function RootLayout({
 
   const {lang} = await params
   const dict = await getDictionary(lang || "en");
+
+    // ✅ read cookie on server
+  const cookieStore = await cookies()
+  const region = cookieStore.get("region")?.value;
+
+  langQuery(lang, region)
+
   return (
     
     <html lang={lang} >
@@ -69,7 +80,7 @@ export default async function RootLayout({
                     <Header dict={dict} hidden={false} />
                     <Header2 hidden={false}/>
                     <main className="flex-1">{children}</main>
-                    {/* <LanguageDetector /> */}
+                    <LanguageDetector />
                     <Footer />
                   </div>
                 </div>
