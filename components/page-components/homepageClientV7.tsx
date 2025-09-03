@@ -306,13 +306,22 @@ export default function HomepageClientV7() {
 
 
 
-        <section className="px-8 bg-white h-[400px] flex items-center justify-center">
-          <div className="text-center max-w-[700px]">
+        <section
+          style={{
+                  backgroundImage: "url(/word_map_background.webp)",
+                  backgroundPosition: "center center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "contain",
+                }}
+        className="px-8 mt-20 mb-16 bg-white h-[400px] flex items-center justify-center">
+          <div
+            
+          className="text-center max-w-[700px]">
             <h2 className="text-2xl lg:text-3xl font-bold text-[#00599c] my-8">
               Your Career at IKA
             </h2>
             <p className="text-md lg:text-lg leading-relaxed text-[#464646]">
-             Ika is looking for world-class talents ready to tackle challenging projects and shape the<br></br> future together.<br></br>Become part of the IKA team.
+             Ika is looking for world-class talents ready to tackle challenging projects and shape the future together.<br></br>Become part of the IKA team.
             </p>
 
             {/* Buttons section */}
@@ -326,7 +335,6 @@ export default function HomepageClientV7() {
             </div>
           </div>
         </section>
-        
 
 
         
