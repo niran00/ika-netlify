@@ -8,8 +8,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   const { lang, region } = req.body
+
   console.log("Current Language 1:", lang)
-  console.log("User Region 2:", region)
+  console.log("User Region 2:", region.toLowerCase())
+
+  const regionToUse = region.toLowerCase();
 
 
   if (!lang) {
@@ -23,8 +26,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       connectString: process.env.ORACLE_CONNECT_STRING,
     })
     const result = await connection.execute(
-      `SELECT * FROM IKA.LANG_SITE WHERE LANG_ISO_CODE = :lang`,
-      { lang }, // object binding
+      `SELECT * FROM IKA.LANG_SITE WHERE LANG_ISO_CODE = :regionToUse`,
+      { regionToUse }, // object binding
       { outFormat: oracledb.OUT_FORMAT_OBJECT }
     )
     if (!result.rows || result.rows.length === 0) {

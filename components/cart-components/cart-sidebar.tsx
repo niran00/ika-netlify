@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
+import Link from 'next/link'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { ShoppingCart, Plus, Minus, Trash2, FileText, X } from 'lucide-react'
@@ -158,12 +159,14 @@ export function CartSidebar({ children }) {
 
                   {/* Action Buttons */}
                   <div className="space-y-2">
-                     <Button 
-                      onClick={handleRequestQuote}
-                      className="w-full bg-[#00599c] hover:bg-[#004080] text-white"
-                    >
-                      <FileText className="h-4 w-4 mr-2" />
-                      Checkout
+                     
+
+
+                    <Button asChild className="w-full bg-[#00599c] hover:bg-[#004080] text-white">
+                      <Link href="/checkout">
+                        <FileText className="h-4 w-4 mr-2" />
+                        Checkout
+                      </Link>
                     </Button>
 
 

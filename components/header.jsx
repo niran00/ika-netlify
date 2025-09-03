@@ -586,12 +586,10 @@ const defaultFeaturedContent = {
             
               <div className="flex">
 
-                <CartSidebar dict={dict}/><LanguageSwitcher currentLanguage={currentLang} onLanguageChange={onLanguageChange} />
+                <CartSidebar dict={dict}/>
+                <LanguageSwitcher currentLanguage={currentLang} onLanguageChange={onLanguageChange} />
              
                 <UserMenu />
-             
-             
-                <CartSidebar />
              
                 <RegionSwitcher/>
 

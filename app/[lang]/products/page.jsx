@@ -10,6 +10,7 @@ import { ChevronRight, ChevronDown, Search, Grid, List, FileText, Package, Wrenc
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { CartButton } from '@/components/cart-components/cart-button'
 
+
 const productCategories = [
   {
     id: "bioprocessing",
@@ -1054,3 +1055,4 @@ export default function ProductsPage() {
     </div>
   )
 }
+

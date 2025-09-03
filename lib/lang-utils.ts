@@ -13,7 +13,7 @@ export const getLocaleParam = (lang: string): string => {
 };
 
 
-export async function langQuery(lang: string, region: string) {
+export async function langQuery(lang: string, region: any) {
 
   
 
