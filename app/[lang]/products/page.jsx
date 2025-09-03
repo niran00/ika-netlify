@@ -10,6 +10,8 @@ import { ChevronRight, ChevronDown, Search, Grid, List, FileText, Package, Wrenc
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { CartButton } from '@/components/cart-components/cart-button'
 
+const FIGMA="https://www.figma.com/proto/F7JtwXVLGhSiMKEZYqXEgk/IKA-UI?node-id=1-15&t=Bimt8ektskqXjSDc-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A15"
+
 const productCategories = [
   {
     id: "bioprocessing",
@@ -1054,3 +1056,4 @@ export default function ProductsPage() {
     </div>
   )
 }
+
