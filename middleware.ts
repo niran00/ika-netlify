@@ -8,19 +8,37 @@ function getLocale(request: NextRequest) {
   return defaultLocale; // you can extend this with accept-language later
 }
 
-export function middleware(request: NextRequest) {
+
+async function getAPILocation() {
+  try {
+    const response = await fetch("https://ipapi.co/json/");
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data; // full data object
+  } catch (error) {
+    console.error("Error fetching location:", error);
+  }
+}
+
+// // Usage example:
+// getAPILocation().then(data => console.log(data));
+
+
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // ---- Region handling ----
   const regionCookie = request.cookies.get("region");
-  let region = regionCookie?.value ?? "EU";
+  let region = regionCookie?.value; // default safe fallback
+
+  let res: NextResponse;
 
   // ---- Locale handling ----
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
-
-  let res: NextResponse;
 
   if (!pathnameHasLocale) {
     const locale = getLocale(request);
@@ -30,20 +48,22 @@ export function middleware(request: NextRequest) {
     res = NextResponse.next();
   }
 
-  // ---- Set region cookie if missing ----
+  // ---- Only fetch if cookie missing ----
   if (!regionCookie) {
+    const countryData = await getAPILocation();
+    if (countryData?.country_code) {
+      console.log("current reg", countryData.country_code);
+      region = countryData.country_code;
+    }
     res.cookies.set("region", region, { path: "/" });
-  }
-
-  // ---- Debug log ----
-  if (regionCookie) {
-    console.log("Region cookie exists:", regionCookie.value);
-  } else {
     console.log("Region cookie just set to:", region);
+  } else {
+    console.log("Region cookie exists:", region);
   }
 
   return res;
 }
+
 
 export const config = {
   matcher: [
