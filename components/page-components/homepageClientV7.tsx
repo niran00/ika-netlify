@@ -378,7 +378,7 @@ const recommendedProducts = [
     description: "Compact magnetic stirrer with heating function",
   },
   {
-    id: 1,
+    id: 4,
     name: "Laboratory Technology",
     category: "Engineered for precision and scalability in every lab setting.",
     price: "Contact for pricing",
@@ -389,7 +389,7 @@ const recommendedProducts = [
     description: "Digital rotary evaporator with precise temperature control",
   },
   {
-    id: 2,
+    id: 5,
     name: "Process Technology",
     category: "The Process Technology division of IKA offers turnkey solutions",
     price: "Contact for pricing",
@@ -400,7 +400,7 @@ const recommendedProducts = [
     description: "High-performance overhead stirrer for demanding applications",
   },
   {
-    id: 3,
+    id: 6,
     name: "BioProcessing Solutions",
     category: "One system suitable for all bioprocessing applications",
     price: "Bioprocessing",
