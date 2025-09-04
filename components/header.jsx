@@ -566,6 +566,7 @@ const defaultFeaturedContent = {
                         <Link 
                           href={item.href}>
                           {item.name}
+                          
                         </Link>
                         <ChevronDown className="h-3 w-3" />
                       
