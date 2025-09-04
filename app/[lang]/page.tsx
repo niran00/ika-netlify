@@ -11,6 +11,8 @@ import HomepageClientV7 from "@/components/page-components/homepageClientV7";
 // ✅ Server Component: receives params, fetches on server, no hooks.
 export default async function HomepageV2() {
 
+ 
+
   // ✅ Render plain JSX — no useState/useEffect needed
   return (
       <>
