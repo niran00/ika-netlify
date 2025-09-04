@@ -26,6 +26,7 @@ import TabMenu from "./menu-components/tabMenuProducts"
 import { UserMenu } from "@/components/authentication-components/user-menu"
 import { RegionSwitcher } from "./region-switcher"
 import LanguageSwitcher from "@/components/language-switcher"
+import Link from "next/link"
 
 const productSuggestions = [
   { name: "IKA RV 10 Digital", category: "Rotary Evaporators", type: "product", branch: "laboratory" },
@@ -182,7 +183,7 @@ const megaMenuData = {
 }
 
 const navigationItems = [
-  { name: "Products", hasDropdown: true },
+  { name: "Products", href: "/products", hasDropdown: true },
   { name: "Services", href: "/services", hasDropdown: false },
   { name: "Knowledge Center", href: "/knowledge", hasDropdown: false },
   { name: "Company", href: "/company", hasDropdown: true },
@@ -562,8 +563,12 @@ const defaultFeaturedContent = {
                       onMouseLeave={item.name === "Products" ? handleMouseLeave : undefined}
                     >
                       <button className="flex items-center gap-1 text-gray-700 hover:text-[#00599c] transition-colors py-2 text-sm font-medium">
-                        {item.name}
+                        <Link 
+                          href={item.href}>
+                          {item.name}
+                        </Link>
                         <ChevronDown className="h-3 w-3" />
+                      
                       </button>
                     </div>
                   ) : (
