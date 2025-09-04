@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
@@ -33,21 +33,30 @@ export function CartSidebar({ children }) {
     setIsOpen(false)
   }
 
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger asChild>
-          {children || (
-            <Button variant="ghost" size="sm" className="text-gray-600 hover:text-[#00599c] p-2 relative">
+        
+          <SheetTrigger asChild>
+            <button
+              type="button"
+              className="text-gray-600 hover:text-[#00599c] p-2 relative"
+            >
               <ShoppingCart className="h-5 w-5" />
-              {itemCount > 0 && (
-                <Badge className="absolute -top-1 -right-1 bg-[#00599c] text-white text-xs h-5 w-5 flex items-center justify-center p-0 rounded-full">
+              {mounted && itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#00599c] text-white text-xs h-5 w-5 flex items-center justify-center p-0 rounded-full">
                   {itemCount}
-                </Badge>
+                </span>
               )}
-            </Button>
-          )}
-        </SheetTrigger>
+            </button>
+          </SheetTrigger>
+
         
         <SheetContent className="w-full sm:max-w-lg">
           <SheetHeader className="space-y-4">
