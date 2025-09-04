@@ -18,7 +18,7 @@ import { CartProvider } from "@/app/context/cart-context"
 
 import { cookies } from "next/headers"
 
-// import { langQuery } from "@/lib/lang-utils";
+import { langQuery } from "@/lib/lang-utils";
 
 import LanguageDetector from "@/components/detect-language";
 
@@ -64,7 +64,7 @@ export default async function RootLayout({
   const cookieStore = await cookies()
   const region = cookieStore.get("region")?.value;
 
-  // langQuery(lang, region)
+  langQuery(lang, region)
 
   return (
     
